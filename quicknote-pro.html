@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickNote Pro - Download | Bolt Studios ⚡</title>
+    <meta name="description" content="Download QuickNote Pro by Bolt Studios - Beautiful note-taking with cloud sync and images.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --secondary: #FFA500;
+            --dark: #1a1a1a;
+            --darker: #0d0d0d;
+            --light: #ffffff;
+            --gray: #666;
+            --accent: #00D9FF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation - Same as homepage */
+        nav {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .app-hero {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .app-icon-large {
+            font-size: 8em;
+            margin-bottom: 30px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .app-hero h1 {
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .app-hero p {
+            font-size: 1.5em;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .rating-stars {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .rating-text {
+            color: var(--gray);
+            font-size: 1.1em;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Download Section */
+        .download-box {
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-box::before {
+            content: '⚡';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .download-box h2 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 20px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: 900;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .file-info {
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 1.1em;
+        }
+
+        .file-info strong {
+            color: var(--light);
+        }
+
+        /* Installation Steps */
+        .installation {
+            background: var(--dark);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .installation h3 {
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 25px;
+            padding-left: 70px;
+            position: relative;
+            color: var(--gray);
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5em;
+        }
+
+        .steps li strong {
+            color: var(--light);
+        }
+
+        /* Features Grid */
+        .features-section {
+            margin-bottom: 60px;
+        }
+
+        .features-section h3 {
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: var(--dark);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            background: var(--darker);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            color: var(--gray);
+        }
+
+        /* Screenshots */
+        .screenshots {
+            margin-bottom: 60px;
+        }
+
+        .screenshots h3 {
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .screenshot-placeholder {
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 217, 255, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .screenshot-placeholder:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        /* Reviews */
+        .reviews {
+            margin-bottom: 60px;
+        }
+
+        .reviews h3 {
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--dark);
+            border-left: 4px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .review-stars {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--gray);
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .review-author {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        /* What's New */
+        .whats-new {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 217, 255, 0.1));
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .whats-new h3 {
+            color: #00ff88;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .whats-new ul {
+            list-style: none;
+        }
+
+        .whats-new li {
+            padding: 10px 0;
+            padding-left: 40px;
+            position: relative;
+            color: var(--light);
+            font-size: 1.1em;
+        }
+
+        .whats-new li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+        }
+
+        /* Support Section */
+        .support {
+            background: var(--dark);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .support h3 {
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .support-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .support-btn {
+            background: var(--darker);
+            color: var(--light);
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .support-btn:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .app-hero h1 {
+                font-size: 2.5em;
+            }
+
+            .download-box {
+                padding: 30px;
+            }
+
+            .download-btn {
+                font-size: 1.2em;
+                padding: 15px 40px;
+            }
+
+            .installation {
+                padding: 30px 20px;
+            }
+
+            .steps li {
+                padding-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span>⚡</span>
+                <span>BOLT STUDIOS</span>
+            </a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="app-hero">
+        <div class="app-icon-large">📝</div>
+        <h1>QuickNote Pro</h1>
+        <p>Your thoughts, perfectly organized</p>
+        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rating-text"><strong>4.8/5</strong> • 10,000+ downloads</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Download Box -->
+        <div class="download-box">
+            <h2>⚡ Download QuickNote Pro</h2>
+            <a href="apk/quicknote-pro-v1.0.0.apk" class="download-btn" download>
+                <span>📱</span>
+                <span>Download APK</span>
+            </a>
+            <div class="file-info">
+                <p><strong>Version:</strong> 1.0.0 | <strong>Size:</strong> 24.5 MB</p>
+                <p><strong>Requires:</strong> Android 5.0+ | <strong>Free</strong> with ads</p>
+            </div>
+        </div>
+
+        <!-- Installation Steps -->
+        <div class="installation">
+            <h3>📋 Installation Guide</h3>
+            <ol class="steps">
+                <li>Tap the <strong>"Download APK"</strong> button above</li>
+                <li>Once downloaded, open the <strong>APK file</strong> from your notifications</li>
+                <li>If prompted, go to <strong>Settings → Security</strong> and enable <strong>"Install from Unknown Sources"</strong></li>
+                <li>Tap <strong>"Install"</strong> and wait for installation to complete</li>
+                <li>Open <strong>QuickNote Pro</strong> and create your free account!</li>
+            </ol>
+            <p style="color: var(--gray); margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px;">
+                <strong>⚠️ Security Note:</strong> Your device may show a warning when installing APK files. This is normal for apps downloaded outside Google Play Store. QuickNote Pro is 100% safe and secure!
+            </p>
+        </div>
+
+        <!-- Features -->
+        <div class="features-section">
+            <h3>✨ Powerful Features</h3>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">☁️</div>
+                    <h4>Cloud Sync</h4>
+                    <p>Automatic synchronization across all your devices. Never lose a note again.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">📸</div>
+                    <h4>Image Support</h4>
+                    <p>Attach unlimited images to your notes with our free cloud storage.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🏷️</div>
+                    <h4>8 Categories</h4>
+                    <p>Organize notes with beautiful color-coded categories.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">❤️</div>
+                    <h4>Favorites</h4>
+                    <p>Mark important notes for quick access whenever you need them.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🔍</div>
+                    <h4>Powerful Search</h4>
+                    <p>Find any note instantly with full-text search capabilities.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Lightning Fast</h4>
+                    <p>Optimized performance for smooth experience on any device.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="screenshots">
+            <h3>📱 App Screenshots</h3>
+            <div class="screenshot-grid">
+                <div class="screenshot-placeholder">🏠</div>
+                <div class="screenshot-placeholder">✏️</div>
+                <div class="screenshot-placeholder">📝</div>
+                <div class="screenshot-placeholder">🔍</div>
+            </div>
+            <p style="text-align: center; color: var(--gray); margin-top: 20px;">
+                Add your actual app screenshots here by replacing these placeholders
+            </p>
+        </div>
+
+        <!-- What's New -->
+        <div class="whats-new">
+            <h3>🎉 What's New in v1.0.0</h3>
+            <ul>
+                <li>Initial release of QuickNote Pro by Bolt Studios</li>
+                <li>Cloud synchronization with Firebase</li>
+                <li>Image attachments with Cloudinary</li>
+                <li>8 beautiful categories to organize your notes</li>
+                <li>Favorite notes feature for quick access</li>
+                <li>Full-text search across all your notes</li>
+                <li>Modern Material Design interface</li>
+                <li>Offline mode - works without internet</li>
+            </ul>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews">
+            <h3>💬 What Users Say</h3>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Best note app I've ever used! The cloud sync works perfectly and I love being able to add images. Bolt Studios nailed it!"</p>
+                    <p class="review-author">- Rahul S., Mumbai</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Simple, beautiful, and exactly what I needed. The categories help me stay super organized. Can't wait for more apps from Bolt!"</p>
+                    <p class="review-author">- Priya M., Delhi</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Finally, a note app that's not cluttered! Clean UI, fast performance, and the lightning bolt logo is fire 🔥"</p>
+                    <p class="review-author">- Amit K., Bangalore</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="support">
+            <h3>💬 Need Help?</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;">Our team is here to help you get the most out of QuickNote Pro</p>
+            <div class="support-links">
+                <a href="mailto:contact@boltstudios.in" class="support-btn">📧 Email Support</a>
+                <a href="https://wa.me/919876543210" class="support-btn">💬 WhatsApp</a>
+                <a href="contact.html" class="support-btn">❓ FAQ</a>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div style="text-align: center; margin: 60px 0;">
+            <a href="apk/quicknote-pro-v1.0.0.apk" class="download-btn" download>
+                <span>⚡</span>
+                <span>Download Now</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--dark); padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255, 215, 0, 0.1);">
+        <p style="color: var(--primary); font-size: 1.5em; font-weight: 900; margin-bottom: 10px;">⚡ BOLT STUDIOS</p>
+        <p style="color: var(--gray); margin-bottom: 20px;">Building lightning-fast productivity apps</p>
+        <p style="color: var(--gray);">&copy; 2025 Bolt Studios. All rights reserved.</p>
+        <p style="color: var(--gray); margin-top: 10px;">Made with ⚡ and ❤️ in India 🇮🇳</p>
+        <div style="margin-top: 20px;">
+            <a href="privacy.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Privacy</a>
+            <a href="terms.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Terms</a>
+            <a href="contact.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
