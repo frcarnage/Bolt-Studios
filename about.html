@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Bolt Studios ⚡</title>
+    <meta name="description" content="Learn about Bolt Studios - Building lightning-fast productivity apps since 2025">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --secondary: #FFA500;
+            --dark: #1a1a1a;
+            --darker: #0d0d0d;
+            --light: #ffffff;
+            --gray: #666;
+            --accent: #00D9FF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.8;
+        }
+
+        nav {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: var(--dark);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .value-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            font-size: 1em;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '⚡';
+            position: absolute;
+            left: -67px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: var(--dark);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .timeline-content h4 {
+            color: var(--light);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 1em;
+        }
+
+        .stats-section {
+            background: var(--dark);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        footer {
+            background: var(--darker);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -52px;
+                width: 30px;
+                height: 30px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span>⚡</span>
+                <span>BOLT STUDIOS</span>
+            </a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>About Bolt Studios ⚡</h1>
+        <p>Building lightning-fast apps that make your life easier</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Our Story -->
+        <div class="section">
+            <h2>🌟 Our Story</h2>
+            <p>
+                <strong>Bolt Studios</strong> was born from a simple observation: most productivity apps are either too complicated or too basic. We believe there's a better way.
+            </p>
+            <p>
+                Founded in 2025, we set out to create apps that combine powerful features with intuitive design. Apps that work the way you think. Apps that are fast, beautiful, and actually useful.
+            </p>
+            <p>
+                Based in India 🇮🇳, we're proud to serve users worldwide with apps that respect your privacy, work offline, and sync seamlessly across all your devices.
+            </p>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="section">
+            <h2>🎯 Mission & Vision</h2>
+            <p>
+                <strong>Our Mission:</strong> To create lightning-fast productivity apps that simplify complex tasks and enhance daily life.
+            </p>
+            <p>
+                <strong>Our Vision:</strong> To become the most trusted name in productivity apps, one app at a time. We dream of a world where productivity tools empower people rather than overwhelm them.
+            </p>
+        </div>
+
+        <!-- Values -->
+        <div class="section">
+            <h2>💎 Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Speed First</h3>
+                    <p>Every millisecond matters. We optimize relentlessly to deliver lightning-fast experiences.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Great design isn't decoration—it's how it works. We craft interfaces that feel natural.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Privacy Matters</h3>
+                    <p>Your data is yours. We use industry-standard encryption and never sell your information.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3>User-Centric</h3>
+                    <p>Every feature starts with a real user need. We listen, learn, and iterate constantly.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>We're not afraid to try new approaches. The best solutions often come from thinking differently.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🇮🇳</div>
+                    <h3>Made in India</h3>
+                    <p>Proudly Indian, globally relevant. We build for the world from the heart of India.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-section">
+            <h2 style="color: var(--primary); margin-bottom: 20px;">📊 By the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8★</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Apps Launched</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <h2>📅 Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <div class="timeline-content">
+                        <h4>🎉 Bolt Studios Founded</h4>
+                        <p>Started with a vision to create better productivity apps</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <div class="timeline-content">
+                        <h4>📝 QuickNote Pro Launch</h4>
+                        <p>Our first app goes live with cloud sync and image support</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2025</div>
+                    <div class="timeline-content">
+                        <h4>✅ TaskBolt Coming Soon</h4>
+                        <p>Lightning-fast task management for the modern user</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">April 2025</div>
+                    <div class="timeline-content">
+                        <h4>💰 BudgetBolt Planned</h4>
+                        <p>Smart expense tracking that helps you save more</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2025</div>
+                    <div class="timeline-content">
+                        <h4>📚 StudyBolt On Roadmap</h4>
+                        <p>Complete study companion for students everywhere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology -->
+        <div class="section">
+            <h2>🛠️ Technology Stack</h2>
+            <p>We build with cutting-edge technologies to ensure the best performance:</p>
+            <div class="values-grid" style="margin-top: 30px;">
+                <div class="value-card">
+                    <div class="value-icon">📱</div>
+                    <h3>Flutter</h3>
+                    <p>Cross-platform framework for beautiful native apps</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔥</div>
+                    <h3>Firebase</h3>
+                    <p>Real-time database and authentication</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">☁️</div>
+                    <h3>Cloudinary</h3>
+                    <p>Fast, reliable cloud storage for media</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚙️</div>
+                    <h3>Modern APIs</h3>
+                    <p>RESTful architecture for scalability</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Join the Bolt Revolution ⚡</h2>
+            <p>Experience the future of productivity apps today</p>
+            <a href="quicknote-pro.html" class="btn">
+                <span>Download QuickNote Pro</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="color: var(--primary); font-size: 1.5em; font-weight: 900; margin-bottom: 15px;">⚡ BOLT STUDIOS</p>
+        <p>&copy; 2025 Bolt Studios. All rights reserved.</p>
+        <p style="margin-top: 10px;">Made with ⚡ and ❤️ in India 🇮🇳</p>
+        <div style="margin-top: 20px;">
+            <a href="privacy.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Privacy</a>
+            <a href="terms.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Terms</a>
+            <a href="contact.html" style="color: var(--gray); text-decoration: none; margin: 0 15px;">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
