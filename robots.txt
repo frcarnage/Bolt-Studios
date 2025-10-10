@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bolt-studios.netlify.app/sitemap.xml
