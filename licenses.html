@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Licenses & Attributions - Bolt Studios</title>
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .legal-content {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .license-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .license-card h3 {
+            margin-top: 0;
+        }
+
+        code {
+            background: var(--dark-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block {
+            background: var(--dark-bg);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .code-block pre {
+            color: var(--text-secondary);
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Bolt Studios ⚡</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="legal-content">
+            <h1>Licenses & Attributions</h1>
+            <span class="last-updated">Last Updated: October 10, 2025</span>
+
+            <p>Bolt Studios builds upon the excellent work of the open-source community and various third-party services. This page acknowledges the technologies, frameworks, and services we use in our applications.</p>
+
+            <h2>1. Our Apps License</h2>
+            <p>Bolt Studios applications are proprietary software. All rights reserved.</p>
+            <div class="code-block">
+                <pre>Copyright © 2025 Bolt Studios. All Rights Reserved.
+
+This software and associated documentation files (the "Software") are the 
+proprietary property of Bolt Studios. 
+
+Unauthorized copying, modification, distribution, or use of this Software, 
+via any medium, is strictly prohibited without explicit written permission 
+from Bolt Studios.
+
+For licensing inquiries, contact: bolt-studios@outlook.com</pre>
+            </div>
+
+            <h2>2. Third-Party Technologies</h2>
+            <p>Our applications are built using the following open-source and third-party technologies:</p>
+
+            <div class="license-card">
+                <h3>Flutter Framework</h3>
+                <p><strong>License:</strong> BSD 3-Clause License</p>
+                <p><strong>Copyright:</strong> © Google LLC</p>
+                <p><strong>Website:</strong> <a href="https://flutter.dev" target="_blank">https://flutter.dev</a></p>
+                <p><strong>Description:</strong> Flutter is Google's open-source UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.</p>
+                <p><strong>License Link:</strong> <a href="https://github.com/flutter/flutter/blob/master/LICENSE" target="_blank">View License</a></p>
+            </div>
+
+            <div class="license-card">
+                <h3>Dart Programming Language</h3>
+                <p><strong>License:</strong> BSD 3-Clause License</p>
+                <p><strong>Copyright:</strong> © Google LLC</p>
+                <p><strong>Website:</strong> <a href="https://dart.dev" target="_blank">https://dart.dev</a></p>
+                <p><strong>Description:</strong> Dart is a client-optimized programming language for apps on multiple platforms.</p>
+                <p><strong>License Link:</strong> <a href="https://github.com/dart-lang/sdk/blob/main/LICENSE" target="_blank">View License</a></p>
+            </div>
+
+            <h2>3. Advertising Services</h2>
+
+            <div class="license-card">
+                <h3>Unity Ads</h3>
+                <p><strong>Provider:</strong> Unity Technologies</p>
+                <p><strong>Website:</strong> <a href="https://unity.com/products/unity-ads" target="_blank">https://unity.com/products/unity-ads</a></p>
+                <p><strong>Description:</strong> Unity Ads is used to display advertisements within our apps to support free app offerings.</p>
+                <p><strong>Privacy Policy:</strong> <a href="https://unity.com/legal/privacy-policy" target="_blank">Unity Privacy Policy</a></p>
+                <p><strong>Terms:</strong> <a href="https://unity.com/legal/terms-of-service" target="_blank">Unity Terms of Service</a></p>
+            </div>
+
+            <h2>4. Flutter Packages & Dependencies</h2>
+            <p>Our apps may use various Flutter packages from <a href="https://pub.dev" target="_blank">pub.dev</a>. Each package has its own license:</p>
+
+            <div class="license-card">
+                <h3>Common Flutter Packages We May Use:</h3>
+                <ul>
+                    <li><strong>shared_preferences</strong> - BSD 3-Clause License</li>
+                    <li><strong>path_provider</strong> - BSD 3-Clause License</li>
+                    <li><strong>http</strong> - BSD 3-Clause License</li>
+                    <li><strong>provider</strong> - MIT License</li>
+                    <li><strong>sqflite</strong> - BSD 2-Clause License</li>
+                    <li><strong>sensors_plus</strong> - BSD 3-Clause License (for Metal Scan Pro)</li>
+                </ul>
+                <p>For a complete list of packages used in each app, please refer to the <code>pubspec.yaml</code> file in the respective app repository or check the "About" section in the app.</p>
+            </div>
+
+            <h2>5. Fonts and Icons</h2>
+
+            <div class="license-card">
+                <h3>System Fonts</h3>
+                <p>Our apps primarily use system fonts provided by the operating system (Android/iOS/Web), which are licensed by their respective platform providers.</p>
+            </div>
+
+            <div class="license-card">
+                <h3>Icons</h3>
+                <p>Icons used in our applications come from various sources:</p>
+                <ul>
+                    <li><strong>Material Icons:</strong> Apache License 2.0 (by Google)</li>
+                    <li><strong>Cupertino Icons:</strong> MIT License</li>
+                    <li><strong>Custom Icons:</strong> Created by Bolt Studios (All Rights Reserved)</li>
+                </ul>
+            </div>
+
+            <h2>6. Website Technologies</h2>
+
+            <div class="license-card">
+                <h3>Hosting</h3>
+                <p><strong>Netlify</strong> - Our website is hosted on Netlify's free tier.</p>
+                <p><strong>Website:</strong> <a href="https://www.netlify.com" target="_blank">https://www.netlify.com</a></p>
+                <p><strong>Terms:</strong> <a href="https://www.netlify.com/legal/terms-of-use/" target="_blank">Netlify Terms</a></p>
+            </div>
+
+            <div class="license-card">
+                <h3>Formspree</h3>
+                <p><strong>Service:</strong> Contact form handling</p>
+                <p><strong>Website:</strong> <a href="https://formspree.io" target="_blank">https://formspree.io</a></p>
+                <p><strong>Privacy:</strong> <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Formspree Privacy Policy</a></p>
+            </div>
+
+            <h2>7. Open Source Licenses</h2>
+
+            <h3>BSD 3-Clause License (Summary)</h3>
+            <p>Allows use, modification, and distribution with conditions:</p>
+            <ul>
+                <li>Redistributions must retain copyright notice</li>
+                <li>Redistributions in binary form must reproduce copyright notice</li>
+                <li>Neither the name of the copyright holder nor contributors may be used to endorse products without permission</li>
+            </ul>
+
+            <h3>MIT License (Summary)</h3>
+            <p>A permissive license allowing:</p>
+            <ul>
+                <li>Commercial use</li>
+                <li>Modification</li>
+                <li>Distribution</li>
+                <li>Private use</li>
+            </ul>
+            <p>With the condition that the license and copyright notice must be included.</p>
+
+            <h2>8. Trademarks</h2>
+            <p>The following are trademarks or registered trademarks of their respective owners:</p>
+            <ul>
+                <li><strong>Flutter</strong> and the <strong>Flutter logo</strong> are trademarks of Google LLC</li>
+                <li><strong>Unity</strong> and <strong>Unity Ads</strong> are trademarks of Unity Technologies</li>
+                <li><strong>Android</strong> is a trademark of Google LLC</li>
+                <li><strong>iOS</strong> and <strong>Apple</strong> are trademarks of Apple Inc.</li>
+                <li><strong>Bolt Studios ⚡</strong> is a trademark of Bolt Studios</li>
+            </ul>
+
+            <h2>9. Disclaimer</h2>
+            <p>While we make every effort to ensure the accuracy of this information, the licenses and attributions listed here may not be exhaustive. For the most up-to-date licensing information about specific packages or dependencies, please refer to their official documentation.</p>
+
+            <h2>10. Questions or Concerns</h2>
+            <p>If you believe any license has been violated or if you have questions about our use of open-source software:</p>
+            <ul>
+                <li><strong>Email:</strong> bolt-studios@outlook.com</li>
+                <li><strong>Subject:</strong> "License Inquiry" or "Attribution Question"</li>
+            </ul>
+
+            <h2>11. Acknowledgments</h2>
+            <p>We would like to extend our gratitude to:</p>
+            <ul>
+                <li>The <strong>Flutter team at Google</strong> for creating an amazing cross-platform framework</li>
+                <li>All <strong>open-source contributors</strong> whose packages make development faster and better</li>
+                <li>The <strong>developer community</strong> for sharing knowledge and best practices</li>
+                <li><strong>Unity Technologies</strong> for providing advertising solutions</li>
+                <li>Our <strong>users</strong> for their continued support and feedback</li>
+            </ul>
+
+            <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+                <strong>Bolt Studios stands on the shoulders of giants.</strong> We're grateful for the open-source community and committed to respecting all licenses and intellectual property rights.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
