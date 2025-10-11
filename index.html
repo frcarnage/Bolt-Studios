@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bolt Studios - Lightning-fast mobile apps for everyday life. Download QuickNote Pro, Metal Scan Pro and more innovative apps.">
-    <meta name="keywords" content="Bolt Studios, mobile apps, QuickNote Pro, Metal Scan Pro, productivity apps, utility apps, Flutter apps">
+    <meta name="description" content="Bolt Studios - Lightning-fast mobile apps for everyday life. Download Metal Scan Pro, QuickNote Pro and more innovative apps.">
+    <meta name="keywords" content="Bolt Studios, Metal Scan Pro, QuickNote Pro, mobile apps, metal detector app, productivity apps, utility apps, Flutter apps, Indian app developer">
     <meta name="author" content="Bolt Studios">
     <meta property="og:title" content="Bolt Studios ⚡ - Innovative Mobile Apps">
-    <meta property="og:description" content="Lightning-fast mobile apps for everyday life">
+    <meta property="og:description" content="Download Metal Scan Pro, QuickNote Pro and more innovative apps">
     <meta property="og:image" content="https://bolt-studios.netlify.app/assets/icons/app_icon.png">
     <meta property="og:url" content="https://bolt-studios.netlify.app">
-    <meta name="google-site-verification" content="Dp-vsmJtBl_7IOuZ8kv0sbkYAIWnYIqPg0BqTFBNzI8" />
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="Dp-vsmJtBl_7IOuZ8kv0sbkYAIWnYIqPg0BqTFBNzI8" />
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
     <title>Bolt Studios ⚡ - Lightning-Fast Mobile Apps</title>
     <style>
@@ -44,7 +44,6 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
         nav {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
@@ -102,7 +101,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             text-align: center;
             padding: 6rem 0;
@@ -156,7 +154,6 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
 
-        /* Apps Section */
         .apps-section {
             padding: 4rem 0;
         }
@@ -192,11 +189,11 @@
             height: 80px;
             border-radius: 16px;
             margin-bottom: 1rem;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
         .app-card h3 {
@@ -225,7 +222,21 @@
             color: var(--primary-color);
         }
 
-        /* About Section */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .badge.coming-soon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
         .about-section {
             padding: 4rem 0;
             background: var(--card-bg);
@@ -243,7 +254,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Social Media */
         .social-section {
             padding: 3rem 0;
             text-align: center;
@@ -274,7 +284,6 @@
             background: var(--primary-color);
         }
 
-        /* Contact Form */
         .contact-section {
             padding: 4rem 0;
             background: var(--card-bg);
@@ -317,7 +326,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Footer */
         footer {
             background: var(--dark-bg);
             padding: 3rem 0 1rem;
@@ -361,7 +369,19 @@
             color: var(--text-secondary);
         }
 
-        /* Responsive */
+        .download-info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .download-info p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -395,41 +415,9 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Legal Pages Styles */
-        .legal-content {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 16px;
-        }
-
-        .legal-content h2 {
-            color: var(--primary-color);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content h3 {
-            color: var(--accent-color);
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .legal-content p,
-        .legal-content li {
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .legal-content ul {
-            margin-left: 2rem;
-        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="#home" class="logo">
@@ -447,7 +435,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <h1>Bolt Studios ⚡</h1>
@@ -459,13 +446,44 @@
         </div>
     </section>
 
-    <!-- Apps Section -->
     <section id="apps" class="apps-section">
         <div class="container">
             <h2 class="section-title">Our Apps</h2>
             <div class="apps-grid">
+                <!-- Metal Scan Pro -->
+                <div class="app-card">
+                    <span class="badge">🔥 NEW</span>
+                    <div class="app-icon">🔍</div>
+                    <h3>Metal Scan Pro</h3>
+                    <p>Professional AR-powered metal detector using your phone's magnetometer sensor.</p>
+                    <ul class="features-list">
+                        <li>Real-time metal detection</li>
+                        <li>AR Camera Mode with live overlay</li>
+                        <li>3D magnetic field visualization</li>
+                        <li>Detection history & analytics</li>
+                        <li>Adjustable sensitivity controls</li>
+                        <li>Live signal graph</li>
+                    </ul>
+                    <div class="download-info">
+    <p><strong>📱 Download APK:</strong></p>
+    <p><a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
+          style="color: var(--primary-color); text-decoration: underline;">
+        Metal Scan Pro v1.0.0 (Android)
+    </a></p>
+    <p style="font-size: 0.85rem; color: var(--text-secondary);">
+        📦 Size: 47MB • 📱 Android 6.0+ • 🆓 Free with ads
+    </p>
+</div>
+<a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
+   class="btn btn-primary" 
+   download>
+   Download APK (25MB)
+</a>
+                </div>
+
                 <!-- QuickNote Pro -->
                 <div class="app-card">
+                    <span class="badge coming-soon">Coming Soon</span>
                     <div class="app-icon">📝</div>
                     <h3>QuickNote Pro</h3>
                     <p>Fast, intuitive note-taking app for all your ideas and tasks.</p>
@@ -476,33 +494,20 @@
                         <li>Offline-first design</li>
                         <li>Clean, distraction-free interface</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Download Now</a>
+                    <a href="#" class="btn btn-secondary" style="opacity: 0.6; cursor: not-allowed;">Coming Soon</a>
                 </div>
 
-                <!-- Metal Scan Pro -->
-                <div class="app-card">
-                    <div class="app-icon">🔍</div>
-                    <h3>Metal Scan Pro</h3>
-                    <p>Advanced metal detector using your phone's magnetic sensor.</p>
-                    <ul class="features-list">
-                        <li>Detect metal objects nearby</li>
-                        <li>Real-time magnetic field readings</li>
-                        <li>Audio & visual alerts</li>
-                        <li>Calibration tools</li>
-                        <li>Simple, user-friendly interface</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Download Now</a>
-                </div>
-
-                <!-- Coming Soon Card -->
+                <!-- Future Apps -->
                 <div class="app-card" style="opacity: 0.7;">
+                    <span class="badge coming-soon">In Development</span>
                     <div class="app-icon">🚀</div>
-                    <h3>More Apps Coming Soon</h3>
+                    <h3>More Apps Coming</h3>
                     <p>We're constantly working on new innovative apps to make your life easier.</p>
                     <ul class="features-list">
-                        <li>Exciting new features</li>
+                        <li>Productivity tools</li>
+                        <li>Utility applications</li>
+                        <li>Creative solutions</li>
                         <li>User-focused design</li>
-                        <li>Regular updates</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Stay Updated</a>
                 </div>
@@ -510,19 +515,17 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-content">
                 <h2 class="section-title">About Bolt Studios</h2>
                 <p>At Bolt Studios, we believe in creating lightning-fast, intuitive mobile applications that solve real problems. Our mission is to develop innovative apps that enhance productivity and simplify everyday tasks.</p>
                 <p>We're committed to delivering high-quality, user-focused experiences with clean design and powerful functionality. Every app we create is built with attention to detail and a passion for excellence.</p>
-                <p>Founded with a vision to make technology accessible and useful, Bolt Studios continues to push boundaries in mobile app development.</p>
+                <p>Founded in 2025 with a vision to make technology accessible and useful, Bolt Studios continues to push boundaries in mobile app development. Proudly Made in India 🇮🇳</p>
             </div>
         </div>
     </section>
 
-    <!-- Social Media Section -->
     <section class="social-section">
         <div class="container">
             <h2 class="section-title">Connect With Us</h2>
@@ -540,7 +543,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -571,7 +573,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -601,14 +602,14 @@
                     <h3>Contact</h3>
                     <ul>
                         <li>Email: bolt-studios@outlook.com</li>
-                        <li><a href="https://instagram.com/boltstudios.official">Instagram</a></li>
-                        <li><a href="https://twitter.com/BoltStudiosIN">Twitter/X</a></li>
-                        <li><a href="https://youtube.com/@BoltStudios">YouTube</a></li>
+                        <li><a href="https://instagram.com/boltstudios.official" target="_blank">Instagram</a></li>
+                        <li><a href="https://twitter.com/BoltStudiosIN" target="_blank">Twitter/X</a></li>
+                        <li><a href="https://youtube.com/@BoltStudios" target="_blank">YouTube</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bolt Studios. All rights reserved.</p>
+                <p>&copy; 2025 Bolt Studios ⚡ All rights reserved. Made in India 🇮🇳</p>
             </div>
         </div>
     </footer>
@@ -619,18 +620,15 @@
             navLinks.classList.toggle('active');
         }
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
             
             if (!nav.contains(event.target)) {
                 navLinks.classList.remove('active');
             }
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
