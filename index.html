@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bolt Studios - Lightning-fast mobile apps for everyday life. Download Metal Scan Pro, QuickNote Pro and more innovative apps.">
-    <meta name="keywords" content="Bolt Studios, Metal Scan Pro, QuickNote Pro, mobile apps, metal detector app, productivity apps, utility apps, Flutter apps, Indian app developer">
+    <meta name="description" content="Bolt Studios - Lightning-fast mobile apps for everyday life. Download Metal Scan Pro, QR Scan Pro, QuickNote Pro and more innovative apps.">
+    <meta name="keywords" content="Bolt Studios, Metal Scan Pro, QR Scan Pro, QuickNote Pro, mobile apps, metal detector app, QR code scanner, productivity apps, utility apps, Flutter apps, Indian app developer">
     <meta name="author" content="Bolt Studios">
     <meta property="og:title" content="Bolt Studios ⚡ - Innovative Mobile Apps">
-    <meta property="og:description" content="Download Metal Scan Pro, QuickNote Pro and more innovative apps">
+    <meta property="og:description" content="Download Metal Scan Pro, QR Scan Pro, QuickNote Pro and more innovative apps">
     <meta property="og:image" content="https://bolt-studios.netlify.app/assets/icons/app_icon.png">
     <meta property="og:url" content="https://bolt-studios.netlify.app">
     <meta name="twitter:card" content="summary_large_image">
@@ -382,6 +382,18 @@
             font-size: 0.9rem;
         }
 
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -450,9 +462,37 @@
         <div class="container">
             <h2 class="section-title">Our Apps</h2>
             <div class="apps-grid">
-                <!-- Metal Scan Pro -->
+                <!-- QR Scan Pro -->
                 <div class="app-card">
                     <span class="badge">🔥 NEW</span>
+                    <div class="app-icon">📱</div>
+                    <h3>QR Scan Pro</h3>
+                    <p>Professional QR code scanner & generator with 10+ supported formats.</p>
+                    <ul class="features-list">
+                        <li>Fast QR scanning (camera + gallery)</li>
+                        <li>Generate URL, UPI, Email, Phone QRs</li>
+                        <li>UPI payment QR with custom logos</li>
+                        <li>Smart history with search</li>
+                        <li>Dark/light mode & favorites</li>
+                        <li>Share & save anywhere</li>
+                    </ul>
+                    <div class="download-info">
+                        <p><strong>📱 Download APK:</strong></p>
+                        <p><a href="#" 
+                              style="color: var(--primary-color); text-decoration: underline;">
+                            QR Scan Pro v1.0.0 (Android)
+                        </a></p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                            📦 Size: 35MB • 📱 Android 6.0+ • 🆓 Free with ads
+                        </p>
+                    </div>
+                    <a href="app_details.html?app=qr-scan-pro" class="btn btn-outline">View More Details</a>
+                    <a href="#" class="btn btn-primary" download>Download APK</a>
+                </div>
+
+                <!-- Metal Scan Pro -->
+                <div class="app-card">
+                    <span class="badge">🔥 AVAILABLE</span>
                     <div class="app-icon">🔍</div>
                     <h3>Metal Scan Pro</h3>
                     <p>Professional AR-powered metal detector using your phone's magnetometer sensor.</p>
@@ -465,20 +505,21 @@
                         <li>Live signal graph</li>
                     </ul>
                     <div class="download-info">
-    <p><strong>📱 Download APK:</strong></p>
-    <p><a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
-          style="color: var(--primary-color); text-decoration: underline;">
-        Metal Scan Pro v1.0.0 (Android)
-    </a></p>
-    <p style="font-size: 0.85rem; color: var(--text-secondary);">
-        📦 Size: 47MB • 📱 Android 6.0+ • 🆓 Free with ads
-    </p>
-</div>
-<a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
-   class="btn btn-primary" 
-   download>
-   Download APK (25MB)
-</a>
+                        <p><strong>📱 Download APK:</strong></p>
+                        <p><a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
+                              style="color: var(--primary-color); text-decoration: underline;">
+                            Metal Scan Pro v1.0.0 (Android)
+                        </a></p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                            📦 Size: 47MB • 📱 Android 6.0+ • 🆓 Free with ads
+                        </p>
+                    </div>
+                    <a href="app_details.html?app=metal-scan-pro" class="btn btn-outline">View More Details</a>
+                    <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" 
+                       class="btn btn-primary" 
+                       download>
+                       Download APK (47MB)
+                    </a>
                 </div>
 
                 <!-- QuickNote Pro -->
@@ -495,21 +536,6 @@
                         <li>Clean, distraction-free interface</li>
                     </ul>
                     <a href="#" class="btn btn-secondary" style="opacity: 0.6; cursor: not-allowed;">Coming Soon</a>
-                </div>
-
-                <!-- Future Apps -->
-                <div class="app-card" style="opacity: 0.7;">
-                    <span class="badge coming-soon">In Development</span>
-                    <div class="app-icon">🚀</div>
-                    <h3>More Apps Coming</h3>
-                    <p>We're constantly working on new innovative apps to make your life easier.</p>
-                    <ul class="features-list">
-                        <li>Productivity tools</li>
-                        <li>Utility applications</li>
-                        <li>Creative solutions</li>
-                        <li>User-focused design</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Stay Updated</a>
                 </div>
             </div>
         </div>
