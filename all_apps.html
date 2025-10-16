@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Browse all Bolt Studios apps - QR Scan Pro, Metal Scan Pro, QuickNote Pro and more innovative mobile applications.">
+    <meta name="keywords" content="Bolt Studios apps, QR Scan Pro, Metal Scan Pro, QuickNote Pro, mobile apps, download apps">
+    <meta name="author" content="Bolt Studios">
+    <meta property="og:title" content="All Apps - Bolt Studios ⚡">
+    <meta property="og:description" content="Browse and download all Bolt Studios apps">
+    <meta property="og:image" content="https://bolt-studios.netlify.app/assets/icons/app_icon.png">
+    <meta property="og:url" content="https://bolt-studios.netlify.app/all_apps.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="assets/icons/app_icon.png">
+    <title>All Apps - Bolt Studios ⚡</title>
+
+    <style>
+        /* ---------- Reset & Root ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+        :root{
+            --primary-color: #3b82f6;
+            --primary-600: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --success: #10b981;
+            --dark-bg: #0f172a;
+            --card-bg: #0f1624;
+            --panel-bg: #111827;
+            --muted: #94a3b8;
+            --text-primary: #e6eef8;
+            --glass: rgba(255,255,255,0.03);
+            --glass-2: rgba(59,130,246,0.06);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --container-w: 1200px;
+            --glass-border: rgba(59,130,246,0.12);
+            --transition-fast: 180ms;
+        }
+        
+        /* Light theme variables */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --dark-bg: #f8fafc;
+                --card-bg: #ffffff;
+                --panel-bg: #f1f5f9;
+                --muted: #64748b;
+                --text-primary: #1e293b;
+                --glass: rgba(0,0,0,0.03);
+                --glass-2: rgba(59,130,246,0.08);
+            }
+        }
+
+        body{
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--panel-bg) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing:antialiased;
+            min-height: 100vh;
+        }
+        .container{ max-width: var(--container-w); margin: 0 auto; padding: 0 20px; }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* ---------- NAV ---------- */
+        nav{
+            background: rgba(9,12,20,0.6);
+            backdrop-filter: blur(8px);
+            position: sticky; top: 0; z-index: 1200;
+            border-bottom: 1px solid rgba(59,130,246,0.06);
+            box-shadow: 0 6px 18px rgba(2,6,23,0.4);
+        }
+        nav .container { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; }
+        .logo{ display:flex; gap:12px; align-items:center; color:var(--primary-color); text-decoration:none; font-weight:700; font-size:1.2rem; }
+        .logo img{ width:44px; height:44px; border-radius:10px; display:block; }
+        .nav-links{ display:flex; gap:18px; list-style:none; align-items:center; }
+        .nav-links a{ color: var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem; padding:6px 8px; border-radius:8px; transition: all var(--transition-fast) ease; }
+        .nav-links a:hover, .nav-links a:focus{ color: var(--text-primary); background: rgba(255,255,255,0.02); transform: translateY(-2px); outline: none; }
+        .mobile-menu-btn{ display:none; background:none; border:0; color:var(--text-primary); font-size:1.5rem; cursor:pointer; padding: 8px; border-radius: 4px; }
+        .mobile-menu-btn:hover, .mobile-menu-btn:focus { background: rgba(255,255,255,0.05); outline: none; }
+
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--glass-2);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-fast) ease;
+            border: 1px solid var(--glass-border);
+        }
+        .back-btn:hover, .back-btn:focus {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        /* ---------- HEADER ---------- */
+        .page-header {
+            padding: 2rem 0 1.5rem;
+            border-bottom: 1px solid rgba(59,130,246,0.06);
+        }
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .page-subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* ---------- APPS GRID ---------- */
+        .apps-section {
+            padding: 2.5rem 0 4rem;
+        }
+        
+        /* Filter and search */
+        .apps-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid rgba(59,130,246,0.1);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid rgba(59,130,246,0.1);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Apps Grid - Play Store Style */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59,130,246,0.06);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(2,6,23,0.15);
+            border-color: rgba(59,130,246,0.15);
+        }
+        
+        .app-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        
+        .app-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .app-developer {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        .app-badge {
+            background: linear-gradient(90deg, #ef4444, #f97316);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .app-badge.coming-soon {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+        
+        .app-description {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .app-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+        }
+        
+        .app-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            flex: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-600));
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .btn-secondary {
+            background: var(--panel-bg);
+            color: var(--text-primary);
+        }
+        
+        .btn:hover, .btn:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(59,130,246,0.15);
+            outline: none;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* App Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.3);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid rgba(59,130,246,0.1);
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .modal-subtitle {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+        
+        .modal-body {
+            padding: 20px 30px 30px;
+        }
+        
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .app-detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .app-detail-image {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .app-detail-image div {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .app-detail-meta {
+            background: var(--panel-bg);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(59,130,246,0.05);
+        }
+        
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+        
+        .meta-label {
+            color: var(--muted);
+        }
+        
+        .meta-value {
+            font-weight: 600;
+        }
+        
+        .app-detail-content h3 {
+            margin: 24px 0 12px;
+            font-size: 1.3rem;
+        }
+        
+        .app-detail-content h3:first-child {
+            margin-top: 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+        }
+        
+        .feature-item::before {
+            content: "⚡";
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        /* ---------- FOOTER ---------- */
+        footer{ background: transparent; padding:2.2rem 0 1.2rem; border-top:1px solid rgba(59,130,246,0.03); margin-top:2rem; }
+        .footer-content{ display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:18px; margin-bottom:18px; }
+        .footer-section h3{ color:var(--primary-color); margin-bottom:10px; }
+        .footer-section p, .footer-section li{ color:var(--muted); font-size:0.95rem; list-style:none; }
+        .footer-section a { color: var(--muted); text-decoration: none; transition: color var(--transition-fast) ease; }
+        .footer-section a:hover, .footer-section a:focus { color: var(--primary-color); outline: none; }
+        .footer-bottom{ text-align:center; color:var(--muted); padding-top:10px; border-top:1px solid rgba(255,255,255,0.02); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 980px){
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px){
+            .nav-links{ display:none; position:absolute; top:64px; left:0; right:0; background:var(--panel-bg); padding:12px; flex-direction:column; gap:8px; border-top:1px solid rgba(59,130,246,0.04); }
+            .nav-links.active{ display:flex; }
+            .mobile-menu-btn{ display:block; }
+            .apps-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box {
+                max-width: 100%;
+            }
+            .filter-buttons {
+                justify-content: center;
+            }
+            .apps-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        @media (max-width: 480px){
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/app_icon.png" alt="Bolt Studios Logo">
+                <span>Bolt Studios ⚡</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all_apps.html" class="active">All Apps</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+                <a href="index.html" class="back-btn">← Back to Home</a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">All Apps</h1>
+            <p class="page-subtitle">Explore our complete collection of lightning-fast mobile applications designed to simplify your everyday life.</p>
+        </div>
+    </header>
+
+    <!-- APPS GRID -->
+    <main id="main-content" class="apps-section">
+        <div class="container">
+            <!-- Controls -->
+            <div class="apps-controls">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search apps..." aria-label="Search apps">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Apps</button>
+                    <button class="filter-btn" data-filter="available">Available</button>
+                    <button class="filter-btn" data-filter="coming-soon">Coming Soon</button>
+                </div>
+            </div>
+
+            <!-- Apps Grid -->
+            <div class="apps-grid" id="appsGrid">
+                <!-- QR Scan Pro -->
+                <div class="app-card" data-category="available" data-name="qr scan pro">
+                    <div class="app-image">📱</div>
+                    <div class="app-content">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">QR Scan Pro</h3>
+                                <p class="app-developer">Bolt Studios</p>
+                            </div>
+                            <span class="app-badge">NEW</span>
+                        </div>
+                        <p class="app-description">Professional QR code scanner & generator with 10+ supported formats. Scan from camera or gallery, create custom UPI payment QR codes with logos.</p>
+                        <div class="app-meta">
+                            <div class="app-rating">
+                                <span class="stars">★★★★★</span>
+                                <span>4.8</span>
+                            </div>
+                            <div>35 MB</div>
+                        </div>
+                        <div class="app-actions">
+                            <button class="btn btn-primary" onclick="openAppDetails('qr-scan-pro')">View Details</button>
+                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/qr-scan-pro.apk" class="btn btn-outline" download>Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metal Scan Pro -->
+                <div class="app-card" data-category="available" data-name="metal scan pro">
+                    <div class="app-image">🔍</div>
+                    <div class="app-content">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">Metal Scan Pro</h3>
+                                <p class="app-developer">Bolt Studios</p>
+                            </div>
+                            <span class="app-badge">POPULAR</span>
+                        </div>
+                        <p class="app-description">Professional AR-powered metal detector using your phone's magnetometer sensor. Real-time detection with 3D visualization and adjustable sensitivity.</p>
+                        <div class="app-meta">
+                            <div class="app-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span>4.5</span>
+                            </div>
+                            <div>47 MB</div>
+                        </div>
+                        <div class="app-actions">
+                            <button class="btn btn-primary" onclick="openAppDetails('metal-scan-pro')">View Details</button>
+                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" class="btn btn-outline" download>Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QuickNote Pro -->
+                <div class="app-card" data-category="coming-soon" data-name="quicknote pro">
+                    <div class="app-image">📝</div>
+                    <div class="app-content">
+                        <div class="app-header">
+                            <div>
+                                <h3 class="app-title">QuickNote Pro</h3>
+                                <p class="app-developer">Bolt Studios</p>
+                            </div>
+                            <span class="app-badge coming-soon">COMING SOON</span>
+                        </div>
+                        <p class="app-description">Fast, intuitive note-taking app for all your ideas and tasks. Rich text formatting, folder organization, and distraction-free interface.</p>
+                        <div class="app-meta">
+                            <div>Coming Soon</div>
+                            <div>~25 MB</div>
+                        </div>
+                        <div class="app-actions">
+                            <button class="btn btn-primary" onclick="openAppDetails('quicknote-pro')">View Details</button>
+                            <button class="btn btn-secondary" disabled>Notify Me</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional apps can be added here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- APP DETAILS MODAL -->
+    <div class="modal" id="appModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAppDetails()" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalAppTitle">App Title</h2>
+                <p class="modal-subtitle" id="modalAppSubtitle">App description</p>
+            </div>
+            <div class="modal-body">
+                <div class="app-detail-grid">
+                    <div class="app-detail-sidebar">
+                        <div class="app-detail-image">
+                            <div id="modalAppIcon">📱</div>
+                        </div>
+                        <div class="app-detail-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Version</span>
+                                <span class="meta-value" id="modalAppVersion">1.0.0</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Size</span>
+                                <span class="meta-value" id="modalAppSize">35 MB</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Downloads</span>
+                                <span class="meta-value" id="modalAppDownloads">1,000+</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Rating</span>
+                                <span class="meta-value" id="modalAppRating">4.8 ★</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Requires</span>
+                                <span class="meta-value" id="modalAppRequires">Android 6.0+</span>
+                            </div>
+                        </div>
+                        <div class="app-actions">
+                            <a href="#" class="btn btn-primary" id="modalDownloadBtn" download>Download APK</a>
+                            <button class="btn btn-outline" onclick="closeAppDetails()">Back to Apps</button>
+                        </div>
+                    </div>
+                    <div class="app-detail-content" id="modalAppContent">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bolt Studios ⚡</h3>
+                    <p style="color:var(--muted);">Creating lightning-fast apps for everyday life.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="all_apps.html">All Apps</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="community.html">Community Guidelines</a></li>
+                        <li><a href="licenses.html">Licenses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="color:var(--muted);">Email: bolt-studios@outlook.com</li>
+                        <li><a href="https://instagram.com/boltstudios.official" target="_blank">Instagram</a></li>
+                        <li><a href="https://twitter.com/BoltStudiosIN" target="_blank">Twitter/X</a></li>
+                        <li><a href="https://youtube.com/@BoltStudios" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bolt Studios ⚡ All rights reserved. Made in India 🇮🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // App data
+        const appsData = {
+            'qr-scan-pro': {
+                title: 'QR Scan Pro',
+                subtitle: 'Professional QR Code Scanner & Generator',
+                icon: '📱',
+                version: '1.0.0',
+                size: '35 MB',
+                downloads: '5,000+',
+                rating: '4.8 ★',
+                requires: 'Android 6.0+',
+                downloadUrl: 'https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/qr-scan-pro.apk',
+                content: `
+                    <h3>App Overview</h3>
+                    <p><strong>QR Scan Pro</strong> is a comprehensive, feature-rich QR code scanner and generator application built with Flutter. Developed by <strong>Bolt Studios ⚡</strong>, this app provides users with a seamless experience for both scanning and creating various types of QR codes with an elegant, modern interface and smart ad integration.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">Real-time Camera Scanning with animated overlay</div>
+                        <div class="feature-item">Gallery Image Scanning from existing photos</div>
+                        <div class="feature-item">Smart Detection for 10+ QR code types</div>
+                        <div class="feature-item">Flash Support for low-light conditions</div>
+                        <div class="feature-item">Versatile QR Code Generator</div>
+                        <div class="feature-item">Text, URL, Phone, Email QR codes</div>
+                        <div class="feature-item">UPI Payment QR with custom logos</div>
+                        <div class="feature-item">Smart History with search and favorites</div>
+                        <div class="feature-item">Dark/Light Mode switching</div>
+                        <div class="feature-item">High-quality export and sharing</div>
+                    </div>
+                    
+                    <h3>Technical Details</h3>
+                    <p>Built with Flutter framework, using Provider for state management. Integrates Unity Ads for monetization with non-intrusive banner ads and strategic interstitial placements.</p>
+                    
+                    <h3>Supported QR Types</h3>
+                    <ul>
+                        <li>Text QR Codes</li>
+                        <li>URL/Website QR Codes</li>
+                        <li>Phone Number QR Codes</li>
+                        <li>Email QR Codes</li>
+                        <li>UPI Payment QR Codes</li>
+                        <li>WiFi QR Codes</li>
+                        <li>Contact QR Codes</li>
+                        <li>SMS QR Codes</li>
+                        <li>WhatsApp QR Codes</li>
+                    </ul>
+                `
+            },
+            'metal-scan-pro': {
+                title: 'Metal Scan Pro',
+                subtitle: 'Professional AR-Powered Metal Detector',
+                icon: '🔍',
+                version: '1.0.0',
+                size: '47 MB',
+                downloads: '2,500+',
+                rating: '4.5 ★',
+                requires: 'Android 6.0+',
+                downloadUrl: 'https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk',
+                content: `
+                    <h3>App Overview</h3>
+                    <p><strong>Metal Scan Pro</strong> is a professional AR-powered metal detection application that utilizes your phone's magnetometer sensor to detect metallic objects in real-time. With advanced visualization and customizable sensitivity controls, it's perfect for hobbyists and professionals alike.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">Real-time metal detection using magnetometer</div>
+                        <div class="feature-item">AR Camera Mode with live overlay</div>
+                        <div class="feature-item">3D magnetic field visualization</div>
+                        <div class="feature-item">Detection history & analytics</div>
+                        <div class="feature-item">Adjustable sensitivity controls</div>
+                        <div class="feature-item">Live signal graph and visualization</div>
+                        <div class="feature-item">Calibration assistance</div>
+                        <div class="feature-item">Export detection data</div>
+                        <div class="feature-item">Multiple detection modes</div>
+                        <div class="feature-item">Offline functionality</div>
+                    </div>
+                    
+                    <h3>How It Works</h3>
+                    <p>Metal Scan Pro uses your device's built-in magnetometer sensor to detect changes in the magnetic field caused by metallic objects. The app processes these changes in real-time and provides visual and audio feedback when metal is detected.</p>
+                    
+                    <h3>Use Cases</h3>
+                    <ul>
+                        <li>Finding lost metal objects (keys, jewelry)</li>
+                        <li>Educational purposes for understanding magnetism</li>
+                        <li>Checking for metal in walls before drilling</li>
+                        <li>Metal detection as a hobby</li>
+                        <li>Industrial applications for basic metal detection</li>
+                    </ul>
+                `
+            },
+            'quicknote-pro': {
+                title: 'QuickNote Pro',
+                subtitle: 'Fast, Intuitive Note-Taking App',
+                icon: '📝',
+                version: 'Coming Soon',
+                size: '~25 MB',
+                downloads: 'Not released',
+                rating: 'Not rated',
+                requires: 'Android 7.0+',
+                downloadUrl: '#',
+                content: `
+                    <h3>App Overview</h3>
+                    <p><strong>QuickNote Pro</strong> is an upcoming fast, intuitive note-taking application designed for capturing ideas, tasks, and information quickly and efficiently. With a clean, distraction-free interface and powerful organization features, it will be the perfect companion for students, professionals, and anyone who needs to capture thoughts on the go.</p>
+                    
+                    <h3>Planned Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">Lightning-fast note creation</div>
+                        <div class="feature-item">Rich text formatting options</div>
+                        <div class="feature-item">Organize with folders & tags</div>
+                        <div class="feature-item">Offline-first design</div>
+                        <div class="feature-item">Clean, distraction-free interface</div>
+                        <div class="feature-item">Search across all notes</div>
+                        <div class="feature-item">Dark/Light theme support</div>
+                        <div class="feature-item">Export notes as PDF/Text</div>
+                        <div class="feature-item">Pin important notes</div>
+                        <div class="feature-item">Backup & sync options</div>
+                    </div>
+                    
+                    <h3>Release Timeline</h3>
+                    <p>QuickNote Pro is currently in development and is expected to be released in Q2 2025. Sign up for our newsletter to be notified when it becomes available.</p>
+                    
+                    <h3>Target Audience</h3>
+                    <ul>
+                        <li>Students for class notes and study materials</li>
+                        <li>Professionals for meeting notes and tasks</li>
+                        <li>Writers for capturing ideas and inspiration</li>
+                        <li>Anyone who needs a simple, effective note-taking solution</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const isExpanded = navLinks.classList.toggle('active');
+            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Close mobile nav clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+                document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // App filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter apps
+                const filter = this.dataset.filter;
+                const appCards = document.querySelectorAll('.app-card');
+                
+                appCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const appCards = document.querySelectorAll('.app-card');
+            
+            appCards.forEach(card => {
+                const appName = card.dataset.name;
+                if (appName.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Open app details modal
+        function openAppDetails(appId) {
+            const appData = appsData[appId];
+            if (!appData) return;
+            
+            // Populate modal with app data
+            document.getElementById('modalAppTitle').textContent = appData.title;
+            document.getElementById('modalAppSubtitle').textContent = appData.subtitle;
+            document.getElementById('modalAppIcon').textContent = appData.icon;
+            document.getElementById('modalAppVersion').textContent = appData.version;
+            document.getElementById('modalAppSize').textContent = appData.size;
+            document.getElementById('modalAppDownloads').textContent = appData.downloads;
+            document.getElementById('modalAppRating').textContent = appData.rating;
+            document.getElementById('modalAppRequires').textContent = appData.requires;
+            document.getElementById('modalAppContent').innerHTML = appData.content;
+            
+            // Set download button
+            const downloadBtn = document.getElementById('modalDownloadBtn');
+            if (appId === 'quicknote-pro') {
+                downloadBtn.textContent = 'Coming Soon';
+                downloadBtn.style.opacity = '0.6';
+                downloadBtn.style.cursor = 'not-allowed';
+                downloadBtn.removeAttribute('href');
+                downloadBtn.removeAttribute('download');
+            } else {
+                downloadBtn.textContent = 'Download APK';
+                downloadBtn.style.opacity = '1';
+                downloadBtn.style.cursor = 'pointer';
+                downloadBtn.href = appData.downloadUrl;
+                downloadBtn.setAttribute('download', '');
+            }
+            
+            // Show modal
+            document.getElementById('appModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close app details modal
+        function closeAppDetails() {
+            document.getElementById('appModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAppDetails();
+            }
+        });
+
+        // Close modal when clicking outside content
+        document.getElementById('appModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAppDetails();
+            }
+        });
+    </script>
+</body>
+</html>
