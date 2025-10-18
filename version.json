@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "build_number": 2,
+  "build_number": 1,
   "download_url": "https://qr-scan-pro.en.uptodown.com/android",
   "release_notes": "🎉 What's New in v1.0.0:\n\n• 🐛 Fixed camera permission issues\n• ⚡ Improved QR scanning speed\n• 🎨 Enhanced UI animations\n• 🔒 Security improvements\n• 📱 Better tablet support\n• 🌐 Updated translations",
   "is_critical": false,
