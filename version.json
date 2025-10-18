@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "build_number": 2,
+  "download_url": "https://qr-scan-pro.en.uptodown.com/android",
+  "release_notes": "🎉 What's New in v1.0.0:\n\n• 🐛 Fixed camera permission issues\n• ⚡ Improved QR scanning speed\n• 🎨 Enhanced UI animations\n• 🔒 Security improvements\n• 📱 Better tablet support\n• 🌐 Updated translations",
+  "is_critical": false,
+  "min_supported_version": null,
+  "release_date": "2025-10-18",
+  "changelog": {
+    "features": [
+      "Added batch QR code scanning",
+      "New QR code templates",
+      "Dark mode improvements"
+    ],
+    "bug_fixes": [
+      "Fixed crash on Android 14",
+      "Resolved gallery save issues",
+      "Fixed UPI payment validation"
+    ],
+    "improvements": [
+      "Faster app startup time",
+      "Reduced app size by 20%",
+      "Better error handling"
+    ]
+  },
+  "metadata": {
+    "app_name": "QR Scan Pro",
+    "developer": "Bolt Studios",
+    "package_name": "com.boltstudios.qrscanpro",
+    "min_android_version": "5.0",
+    "target_android_version": "14.0"
+  }
+}
