@@ -37,22 +37,24 @@
             --transition-fast: 180ms;
         }
         
-        /* Light theme variables */
+        /* Light theme variables (example) */
         @media (prefers-color-scheme: light) {
             :root {
-                --dark-bg: #f8fafc;
+                /* --dark-bg: #f8fafc;
                 --card-bg: #ffffff;
                 --panel-bg: #f1f5f9;
                 --muted: #64748b;
                 --text-primary: #1e293b;
                 --glass: rgba(0,0,0,0.03);
-                --glass-2: rgba(59,130,246,0.08);
+                --glass-2: rgba(59,130,246,0.08); */
             }
         }
+        
+        html { scroll-behavior: smooth; }
 
         body{
             font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--panel-bg) 100%);
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #071023 100%);
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing:antialiased;
@@ -60,22 +62,41 @@
         }
         .container{ max-width: var(--container-w); margin: 0 auto; padding: 0 20px; }
 
-        /* Skip link for accessibility */
+        /* ---------- ACCESSIBILITY (UX) ---------- */
         .skip-link {
             position: absolute;
-            top: -40px;
+            top: -100px;
             left: 6px;
             background: var(--primary-color);
             color: white;
-            padding: 8px;
+            padding: 8px 12px;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: var(--radius-md);
             z-index: 10000;
             transition: top 0.3s;
         }
         .skip-link:focus {
             top: 6px;
         }
+
+        /* Visible focus rings */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        .filter-btn:focus-visible,
+        .back-btn:focus-visible,
+        .logo:focus-visible,
+        .nav-links a:focus-visible,
+        .back-to-top:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+        }
+        input:focus-visible {
+            outline: none;
+            border-color: var(--primary-color) !important;
+        }
+
 
         /* ---------- NAV ---------- */
         nav{
@@ -90,9 +111,12 @@
         .logo img{ width:44px; height:44px; border-radius:10px; display:block; }
         .nav-links{ display:flex; gap:18px; list-style:none; align-items:center; }
         .nav-links a{ color: var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem; padding:6px 8px; border-radius:8px; transition: all var(--transition-fast) ease; }
-        .nav-links a:hover, .nav-links a:focus{ color: var(--text-primary); background: rgba(255,255,255,0.02); transform: translateY(-2px); outline: none; }
+        .nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.02); transform: translateY(-2px); }
+        .nav-links a.active { color: var(--primary-color); font-weight: 700; }
+        
+        .nav-right { display:flex; align-items:center; gap:12px; }
+        
         .mobile-menu-btn{ display:none; background:none; border:0; color:var(--text-primary); font-size:1.5rem; cursor:pointer; padding: 8px; border-radius: 4px; }
-        .mobile-menu-btn:hover, .mobile-menu-btn:focus { background: rgba(255,255,255,0.05); outline: none; }
 
         /* Back button */
         .back-btn {
@@ -108,11 +132,10 @@
             transition: all var(--transition-fast) ease;
             border: 1px solid var(--glass-border);
         }
-        .back-btn:hover, .back-btn:focus {
+        .back-btn:hover {
             background: var(--primary-color);
             color: white;
             transform: translateY(-2px);
-            outline: none;
         }
 
         /* ---------- HEADER ---------- */
@@ -133,6 +156,24 @@
             font-size: 1.1rem;
             max-width: 600px;
         }
+        
+        /* ---------- NEW: Notice Box ---------- */
+        .notice-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-left: 4px solid var(--primary-color);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 2rem 0 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-primary);
+        }
+        .notice-box p {
+            margin: 0;
+            line-height: 1.5;
+        }
 
         /* ---------- APPS GRID ---------- */
         .apps-section {
@@ -152,6 +193,7 @@
         .search-box {
             position: relative;
             flex: 1;
+            min-width: 250px;
             max-width: 400px;
         }
         
@@ -166,18 +208,14 @@
             transition: all var(--transition-fast) ease;
         }
         
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
-        }
-        
         .search-icon {
             position: absolute;
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--muted);
+            width: 20px;
+            height: 20px;
         }
         
         .filter-buttons {
@@ -200,6 +238,7 @@
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary-color);
             color: white;
+            border-color: var(--primary-color);
         }
         
         /* Apps Grid - Play Store Style */
@@ -233,7 +272,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+        }
+        .app-image svg {
+            width: 72px;
+            height: 72px;
+            color: white;
+            opacity: 0.9;
         }
         
         .app-content {
@@ -269,6 +313,7 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
+            flex-shrink: 0;
         }
         
         .app-badge.coming-soon {
@@ -281,6 +326,11 @@
             line-height: 1.5;
             margin-bottom: 16px;
             flex: 1;
+            /* Clamp text to 3 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
         }
         
         .app-meta {
@@ -296,14 +346,17 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            font-weight: 600;
         }
-        
-        .stars {
+        .app-rating svg {
+            width: 16px;
+            height: 16px;
             color: #fbbf24;
         }
         
         .app-actions {
             display: flex;
+            flex-direction: column;
             gap: 10px;
         }
         
@@ -336,18 +389,24 @@
         .btn-secondary {
             background: var(--panel-bg);
             color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+        .btn-secondary:hover {
+            background: var(--glass-2);
+            border-color: var(--glass-border);
         }
         
-        .btn:hover, .btn:focus {
+        .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(59,130,246,0.15);
-            outline: none;
         }
+        .btn:focus { outline: none; }
         
         .btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
         
         /* App Details Modal */
@@ -363,6 +422,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            backdrop-filter: blur(4px);
         }
         
         .modal.active {
@@ -378,6 +438,7 @@
             overflow-y: auto;
             position: relative;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
         }
         
         .modal-close {
@@ -397,6 +458,7 @@
             cursor: pointer;
             z-index: 10;
         }
+        .modal-close:hover { background: rgba(0,0,0,0.5); }
         
         .modal-header {
             padding: 30px 30px 20px;
@@ -442,8 +504,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
         }
+        .app-detail-image svg { width: 80px; height: 80px; color: white; opacity: 0.9; }
         
         .app-detail-meta {
             background: var(--panel-bg);
@@ -469,6 +531,7 @@
         .meta-value {
             font-weight: 600;
         }
+        .meta-value svg { width: 16px; height: 16px; color: #fbbf24; vertical-align: middle; }
         
         .app-detail-content h3 {
             margin: 24px 0 12px;
@@ -501,12 +564,53 @@
         
         /* ---------- FOOTER ---------- */
         footer{ background: transparent; padding:2.2rem 0 1.2rem; border-top:1px solid rgba(59,130,246,0.03); margin-top:2rem; }
-        .footer-content{ display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:18px; margin-bottom:18px; }
+        .footer-content{ display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin-bottom:18px; }
         .footer-section h3{ color:var(--primary-color); margin-bottom:10px; }
         .footer-section p, .footer-section li{ color:var(--muted); font-size:0.95rem; list-style:none; }
         .footer-section a { color: var(--muted); text-decoration: none; transition: color var(--transition-fast) ease; }
-        .footer-section a:hover, .footer-section a:focus { color: var(--primary-color); outline: none; }
+        .footer-section a:hover { color: var(--primary-color); }
         .footer-bottom{ text-align:center; color:var(--muted); padding-top:10px; border-top:1px solid rgba(255,255,255,0.02); }
+
+        /* ---------- UI/UX UPDATE: ANIMATIONS ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .app-card.is-visible:nth-child(1) { transition-delay: 0ms; }
+        .app-card.is-visible:nth-child(2) { transition-delay: 100ms; }
+        .app-card.is-visible:nth-child(3) { transition-delay: 200ms; }
+
+        /* ---------- UI/UX UPDATE: BACK TO TOP BUTTON ---------- */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 300ms ease, transform 300ms ease;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        }
+        .back-to-top.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 980px){
@@ -515,9 +619,11 @@
             }
         }
         @media (max-width: 768px){
-            .nav-links{ display:none; position:absolute; top:64px; left:0; right:0; background:var(--panel-bg); padding:12px; flex-direction:column; gap:8px; border-top:1px solid rgba(59,130,246,0.04); }
+            .nav-links{ display:none; position:absolute; top:73px; left:0; right:0; background:var(--panel-bg); padding:12px; flex-direction:column; gap:8px; border-top:1px solid rgba(59,130,246,0.04); }
             .nav-links.active{ display:flex; }
             .mobile-menu-btn{ display:block; }
+            .back-btn { display: none; } /* Hide back button, use nav menu */
+            
             .apps-controls {
                 flex-direction: column;
                 align-items: stretch;
@@ -539,14 +645,15 @@
             .page-title {
                 font-size: 2rem;
             }
+            .app-actions {
+                flex-direction: row;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Skip link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- NAV -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
@@ -562,29 +669,36 @@
                 <li><a href="privacy.html">Privacy</a></li>
             </ul>
 
-            <div style="display:flex; align-items:center; gap:12px;">
+            <div class="nav-right">
                 <a href="index.html" class="back-btn">← Back to Home</a>
-                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">☰</button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER -->
-    <header class="page-header">
+    <header class="page-header reveal">
         <div class="container">
             <h1 class="page-title">All Apps</h1>
             <p class="page-subtitle">Explore our complete collection of lightning-fast mobile applications designed to simplify your everyday life.</p>
         </div>
     </header>
 
-    <!-- APPS GRID -->
     <main id="main-content" class="apps-section">
         <div class="container">
-            <!-- Controls -->
-            <div class="apps-controls">
+            
+            <div class="notice-box reveal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; color: var(--primary-color);"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                <p><strong>Notice:</strong> All Bolt Studios apps are scheduled for release on the Google Play Store and other platforms starting in 2026.</p>
+            </div>
+
+            <div class="apps-controls reveal">
                 <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Search apps..." aria-label="Search apps">
+                    <span class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="Search apps (e.g., QR, Metal)" aria-label="Search apps">
                 </div>
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all">All Apps</button>
@@ -593,11 +707,13 @@
                 </div>
             </div>
 
-            <!-- Apps Grid -->
             <div class="apps-grid" id="appsGrid">
-                <!-- QR Scan Pro -->
-                <div class="app-card" data-category="available" data-name="qr scan pro">
-                    <div class="app-image">📱</div>
+                <div class="app-card reveal" data-category="available" data-name="qr scan pro scanner generator">
+                    <div class="app-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5A.75.75 0 014.5 3.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM3.75 15A.75.75 0 014.5 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM15 3.75A.75.75 0 0014.25 3h-4.5a.75.75 0 00-.75.75v4.5a.75.75 0 00.75.75h4.5a.75.75 0 00.75-.75v-4.5zM14.25 15a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5z" />
+                        </svg>
+                    </div>
                     <div class="app-content">
                         <div class="app-header">
                             <div>
@@ -606,24 +722,28 @@
                             </div>
                             <span class="app-badge">NEW</span>
                         </div>
-                        <p class="app-description">Professional QR code scanner & generator with 10+ supported formats. Scan from camera or gallery, create custom UPI payment QR codes with logos.</p>
+                        <p class="app-description">Professional QR code scanner & generator with 10+ supported formats. Scan from camera or gallery, create custom UPI payment QR codes.</p>
                         <div class="app-meta">
                             <div class="app-rating">
-                                <span class="stars">★★★★★</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
                                 <span>4.8</span>
                             </div>
                             <div>35 MB</div>
                         </div>
                         <div class="app-actions">
                             <button class="btn btn-primary" onclick="openAppDetails('qr-scan-pro')">View Details</button>
-                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/qr-scan-pro.apk" class="btn btn-outline" download>Download</a>
+                            <a href="https://en.uptodown.com/developer/bolt-studios/qr-scan-pro" class="btn btn-secondary" target="_blank">Get on Uptodown</a>
+                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/qr-scan-pro.apk" class="btn btn-outline" download>Download APK</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Metal Scan Pro -->
-                <div class="app-card" data-category="available" data-name="metal scan pro">
-                    <div class="app-image">🔍</div>
+                <div class="app-card reveal" data-category="available" data-name="metal scan pro detector ar">
+                    <div class="app-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM1.928 9.372A.38.38 0 012.31 9.308l4.434-.633a.38.38 0 01.42.42l-.633 4.434a.38.38 0 01-.58.265L1.928 9.372zM14.628 1.928a.38.38 0 01.064.381l-.633 4.434a.38.38 0 01-.42.42L9.205 7.79a.38.38 0 01-.265-.58L14.247 1.928a.38.38 0 01.381-.001z" />
+                        </svg>
+                    </div>
                     <div class="app-content">
                         <div class="app-header">
                             <div>
@@ -632,24 +752,28 @@
                             </div>
                             <span class="app-badge">POPULAR</span>
                         </div>
-                        <p class="app-description">Professional AR-powered metal detector using your phone's magnetometer sensor. Real-time detection with 3D visualization and adjustable sensitivity.</p>
+                        <p class="app-description">Professional AR-powered metal detector using your phone's magnetometer sensor. Real-time detection with 3D visualization and AR.</p>
                         <div class="app-meta">
                             <div class="app-rating">
-                                <span class="stars">★★★★☆</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
                                 <span>4.5</span>
                             </div>
                             <div>47 MB</div>
                         </div>
                         <div class="app-actions">
                             <button class="btn btn-primary" onclick="openAppDetails('metal-scan-pro')">View Details</button>
-                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" class="btn btn-outline" download>Download</a>
+                            <a href="https://en.uptodown.com/developer/bolt-studios/metal-scan-pro" class="btn btn-secondary" target="_blank">Get on Uptodown</a>
+                            <a href="https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk" class="btn btn-outline" download>Download APK</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- QuickNote Pro -->
-                <div class="app-card" data-category="coming-soon" data-name="quicknote pro">
-                    <div class="app-image">📝</div>
+                <div class="app-card reveal" data-category="coming-soon" data-name="quicknote pro notes productivity">
+                    <div class="app-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                        </svg>
+                    </div>
                     <div class="app-content">
                         <div class="app-header">
                             <div>
@@ -660,25 +784,31 @@
                         </div>
                         <p class="app-description">Fast, intuitive note-taking app for all your ideas and tasks. Rich text formatting, folder organization, and distraction-free interface.</p>
                         <div class="app-meta">
-                            <div>Coming Soon</div>
+                            <div>Coming 2026</div>
                             <div>~25 MB</div>
                         </div>
                         <div class="app-actions">
                             <button class="btn btn-primary" onclick="openAppDetails('quicknote-pro')">View Details</button>
-                            <button class="btn btn-secondary" disabled>Notify Me</button>
+                            <a href="https://en.uptodown.com/developer/bolt-studios" class="btn btn-secondary" target="_blank">Notify Me</a>
+                            <button class="btn btn-outline" disabled>Download</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Additional apps can be added here -->
+                </div>
+            
+            <div id="noResults" class="notice-box" style="display: none; margin-top: 2rem; border-left-color: #f59e0b;">
+                <p><strong>No apps found.</strong> Try adjusting your search or filter.</p>
             </div>
+            
         </div>
     </main>
 
-    <!-- APP DETAILS MODAL -->
-    <div class="modal" id="appModal">
+    <div class="modal" id="appModal" role="dialog" aria-modal="true" aria-labelledby="modalAppTitle" style="display: none;">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeAppDetails()" aria-label="Close modal">×</button>
+            <button class="modal-close" onclick="closeAppDetails()" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
             <div class="modal-header">
                 <h2 class="modal-title" id="modalAppTitle">App Title</h2>
                 <p class="modal-subtitle" id="modalAppSubtitle">App description</p>
@@ -687,7 +817,8 @@
                 <div class="app-detail-grid">
                     <div class="app-detail-sidebar">
                         <div class="app-detail-image">
-                            <div id="modalAppIcon">📱</div>
+                            <div id="modalAppIcon">
+                                </div>
                         </div>
                         <div class="app-detail-meta">
                             <div class="meta-item">
@@ -700,7 +831,7 @@
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Downloads</span>
-                                <span class="meta-value" id="modalAppDownloads">1,000+</span>
+                                <span class="meta-value" id="modalAppDownloads">5,000+</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Rating</span>
@@ -713,18 +844,16 @@
                         </div>
                         <div class="app-actions">
                             <a href="#" class="btn btn-primary" id="modalDownloadBtn" download>Download APK</a>
-                            <button class="btn btn-outline" onclick="closeAppDetails()">Back to Apps</button>
+                            <a href="#" class="btn btn-secondary" id="modalUptodownBtn" target="_blank">Get on Uptodown</a>
                         </div>
                     </div>
                     <div class="app-detail-content" id="modalAppContent">
-                        <!-- Content will be populated by JavaScript -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -751,9 +880,10 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3>Find Us On</h3>
                     <ul style="list-style:none; padding:0;">
-                        <li style="color:var(--muted);">Email: bolt-studios@outlook.com</li>
+                        <li><a href="https://github.com/frcarnage" target="_blank">GitHub</a></li>
+                        <li><a href="https://en.uptodown.com/developer/bolt-studios" target="_blank">Uptodown</a></li>
                         <li><a href="https://instagram.com/boltstudios.official" target="_blank">Instagram</a></li>
                         <li><a href="https://twitter.com/BoltStudiosIN" target="_blank">Twitter/X</a></li>
                         <li><a href="https://youtube.com/@BoltStudios" target="_blank">YouTube</a></li>
@@ -766,247 +896,245 @@
             </div>
         </div>
     </footer>
+    
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
 
-    <!-- SCRIPTS -->
+
     <script>
-        // App data
+        // --- App data ---
         const appsData = {
             'qr-scan-pro': {
                 title: 'QR Scan Pro',
                 subtitle: 'Professional QR Code Scanner & Generator',
-                icon: '📱',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5A.75.75 0 014.5 3.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM3.75 15A.75.75 0 014.5 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM15 3.75A.75.75 0 0014.25 3h-4.5a.75.75 0 00-.75.75v4.5a.75.75 0 00.75.75h4.5a.75.75 0 00.75-.75v-4.5zM14.25 15a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5z" /></svg>',
                 version: '1.0.0',
                 size: '35 MB',
                 downloads: '5,000+',
-                rating: '4.8 ★',
+                rating: '4.8 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>',
                 requires: 'Android 6.0+',
                 downloadUrl: 'https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/qr-scan-pro.apk',
+                uptodownUrl: 'https://en.uptodown.com/developer/bolt-studios/qr-scan-pro',
                 content: `
                     <h3>App Overview</h3>
-                    <p><strong>QR Scan Pro</strong> is a comprehensive, feature-rich QR code scanner and generator application built with Flutter. Developed by <strong>Bolt Studios ⚡</strong>, this app provides users with a seamless experience for both scanning and creating various types of QR codes with an elegant, modern interface and smart ad integration.</p>
+                    <p><strong>QR Scan Pro</strong> is a comprehensive, feature-rich QR code scanner and generator application built with Flutter. Developed by <strong>Bolt Studios ⚡</strong>, this app provides users with a seamless experience for both scanning and creating various types of QR codes with an elegant, modern interface.</p>
                     
                     <h3>Key Features</h3>
                     <div class="feature-grid">
-                        <div class="feature-item">Real-time Camera Scanning with animated overlay</div>
-                        <div class="feature-item">Gallery Image Scanning from existing photos</div>
-                        <div class="feature-item">Smart Detection for 10+ QR code types</div>
-                        <div class="feature-item">Flash Support for low-light conditions</div>
+                        <div class="feature-item">Real-time Camera Scanning</div>
+                        <div class="feature-item">Gallery Image Scanning</div>
+                        <div class="feature-item">Smart Detection for 10+ QR types</div>
+                        <div class="feature-item">Flash Support for low-light</div>
                         <div class="feature-item">Versatile QR Code Generator</div>
-                        <div class="feature-item">Text, URL, Phone, Email QR codes</div>
                         <div class="feature-item">UPI Payment QR with custom logos</div>
                         <div class="feature-item">Smart History with search and favorites</div>
                         <div class="feature-item">Dark/Light Mode switching</div>
-                        <div class="feature-item">High-quality export and sharing</div>
                     </div>
-                    
-                    <h3>Technical Details</h3>
-                    <p>Built with Flutter framework, using Provider for state management. Integrates Unity Ads for monetization with non-intrusive banner ads and strategic interstitial placements.</p>
                     
                     <h3>Supported QR Types</h3>
                     <ul>
-                        <li>Text QR Codes</li>
-                        <li>URL/Website QR Codes</li>
-                        <li>Phone Number QR Codes</li>
-                        <li>Email QR Codes</li>
-                        <li>UPI Payment QR Codes</li>
-                        <li>WiFi QR Codes</li>
-                        <li>Contact QR Codes</li>
-                        <li>SMS QR Codes</li>
-                        <li>WhatsApp QR Codes</li>
+                        <li>Text, URL/Website, Phone Number</li>
+                        <li>Email, UPI Payment, WiFi, Contact</li>
+                        <li>SMS, WhatsApp, and more...</li>
                     </ul>
                 `
             },
             'metal-scan-pro': {
                 title: 'Metal Scan Pro',
                 subtitle: 'Professional AR-Powered Metal Detector',
-                icon: '🔍',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM1.928 9.372A.38.38 0 012.31 9.308l4.434-.633a.38.38 0 01.42.42l-.633 4.434a.38.38 0 01-.58.265L1.928 9.372zM14.628 1.928a.38.38 0 01.064.381l-.633 4.434a.38.38 0 01-.42.42L9.205 7.79a.38.38 0 01-.265-.58L14.247 1.928a.38.38 0 01.381-.001z" /></svg>',
                 version: '1.0.0',
                 size: '47 MB',
                 downloads: '2,500+',
-                rating: '4.5 ★',
+                rating: '4.5 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>',
                 requires: 'Android 6.0+',
                 downloadUrl: 'https://github.com/frcarnage/Bolt-Studios/releases/download/v1.0.0/app-release.apk',
+                uptodownUrl: 'https://en.uptodown.com/developer/bolt-studios/metal-scan-pro',
                 content: `
                     <h3>App Overview</h3>
-                    <p><strong>Metal Scan Pro</strong> is a professional AR-powered metal detection application that utilizes your phone's magnetometer sensor to detect metallic objects in real-time. With advanced visualization and customizable sensitivity controls, it's perfect for hobbyists and professionals alike.</p>
+                    <p><strong>Metal Scan Pro</strong> turns your phone into a powerful metal detector using its built-in magnetometer sensor. Experience real-time detection with an AR (Augmented Reality) camera overlay and advanced 3D visualization.</p>
                     
                     <h3>Key Features</h3>
                     <div class="feature-grid">
-                        <div class="feature-item">Real-time metal detection using magnetometer</div>
+                        <div class="feature-item">Real-time Metal Detection</div>
                         <div class="feature-item">AR Camera Mode with live overlay</div>
-                        <div class="feature-item">3D magnetic field visualization</div>
-                        <div class="feature-item">Detection history & analytics</div>
-                        <div class="feature-item">Adjustable sensitivity controls</div>
-                        <div class="feature-item">Live signal graph and visualization</div>
-                        <div class="feature-item">Calibration assistance</div>
-                        <div class="feature-item">Export detection data</div>
-                        <div class="feature-item">Multiple detection modes</div>
-                        <div class="feature-item">Offline functionality</div>
+                        <div class="feature-item">3D Magnetic Field Visualization</div>
+                        <div class="feature-item">Detection History & Analytics</div>
+                        <div class="feature-item">Adjustable Sensitivity Controls</div>
+                        <div class="feature-item">Live Signal Graph</div>
+                        <div class="feature-item">Audio and Vibrate Feedback</div>
                     </div>
-                    
-                    <h3>How It Works</h3>
-                    <p>Metal Scan Pro uses your device's built-in magnetometer sensor to detect changes in the magnetic field caused by metallic objects. The app processes these changes in real-time and provides visual and audio feedback when metal is detected.</p>
-                    
-                    <h3>Use Cases</h3>
-                    <ul>
-                        <li>Finding lost metal objects (keys, jewelry)</li>
-                        <li>Educational purposes for understanding magnetism</li>
-                        <li>Checking for metal in walls before drilling</li>
-                        <li>Metal detection as a hobby</li>
-                        <li>Industrial applications for basic metal detection</li>
-                    </ul>
                 `
             },
             'quicknote-pro': {
                 title: 'QuickNote Pro',
-                subtitle: 'Fast, Intuitive Note-Taking App',
-                icon: '📝',
+                subtitle: 'Fast, Intuitive Note-Taking',
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>',
                 version: 'Coming Soon',
                 size: '~25 MB',
-                downloads: 'Not released',
-                rating: 'Not rated',
-                requires: 'Android 7.0+',
+                downloads: 'N/A',
+                rating: 'N/A',
+                requires: 'Android 8.0+',
                 downloadUrl: '#',
+                uptodownUrl: 'https://en.uptodown.com/developer/bolt-studios',
                 content: `
                     <h3>App Overview</h3>
-                    <p><strong>QuickNote Pro</strong> is an upcoming fast, intuitive note-taking application designed for capturing ideas, tasks, and information quickly and efficiently. With a clean, distraction-free interface and powerful organization features, it will be the perfect companion for students, professionals, and anyone who needs to capture thoughts on the go.</p>
+                    <p><strong>QuickNote Pro</strong> is the upcoming standard for fast, intuitive note-taking. Designed for speed and simplicity, it helps you capture ideas, tasks, and reminders in a clean, distraction-free interface.</p>
                     
-                    <h3>Planned Features</h3>
+                    <h3>Key Features</h3>
                     <div class="feature-grid">
                         <div class="feature-item">Lightning-fast note creation</div>
-                        <div class="feature-item">Rich text formatting options</div>
+                        <div class="feature-item">Rich text formatting</div>
                         <div class="feature-item">Organize with folders & tags</div>
                         <div class="feature-item">Offline-first design</div>
                         <div class="feature-item">Clean, distraction-free interface</div>
-                        <div class="feature-item">Search across all notes</div>
-                        <div class="feature-item">Dark/Light theme support</div>
-                        <div class="feature-item">Export notes as PDF/Text</div>
-                        <div class="feature-item">Pin important notes</div>
-                        <div class="feature-item">Backup & sync options</div>
+                        <div class="feature-item">Cloud sync (coming in v2)</div>
                     </div>
                     
-                    <h3>Release Timeline</h3>
-                    <p>QuickNote Pro is currently in development and is expected to be released in Q2 2025. Sign up for our newsletter to be notified when it becomes available.</p>
-                    
-                    <h3>Target Audience</h3>
-                    <ul>
-                        <li>Students for class notes and study materials</li>
-                        <li>Professionals for meeting notes and tasks</li>
-                        <li>Writers for capturing ideas and inspiration</li>
-                        <li>Anyone who needs a simple, effective note-taking solution</li>
-                    </ul>
+                    <h3>Release Status</h3>
+                    <p>This app is currently in development and is scheduled for release in 2026.</p>
                 `
             }
         };
 
-        // Mobile menu toggle
+        // --- Mobile Menu Toggle ---
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
-            const isExpanded = navLinks.classList.toggle('active');
-            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', isExpanded);
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.contains('active');
+            menuBtn.setAttribute('aria-expanded', isActive);
+            if (isActive) {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
         }
-
-        // Close mobile nav clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
-            if (!nav.contains(event.target)) {
-                navLinks.classList.remove('active');
-                document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+            if (navLinks.classList.contains('active') && !nav.contains(event.target)) {
+                toggleMenu();
             }
         });
 
-        // App filtering
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active button
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filter apps
-                const filter = this.dataset.filter;
-                const appCards = document.querySelectorAll('.app-card');
-                
+        // --- App Modal Logic ---
+        const modal = document.getElementById('appModal');
+        function openAppDetails(appId) {
+            const data = appsData[appId];
+            if (!data) return;
+
+            document.getElementById('modalAppTitle').textContent = data.title;
+            document.getElementById('modalAppSubtitle').textContent = data.subtitle;
+            document.getElementById('modalAppIcon').innerHTML = data.icon;
+            document.getElementById('modalAppVersion').textContent = data.version;
+            document.getElementById('modalAppSize').textContent = data.size;
+            document.getElementById('modalAppDownloads').textContent = data.downloads;
+            document.getElementById('modalAppRating').innerHTML = data.rating;
+            document.getElementById('modalAppRequires').textContent = data.requires;
+            document.getElementById('modalAppContent').innerHTML = data.content;
+            
+            const downloadBtn = document.getElementById('modalDownloadBtn');
+            const uptodownBtn = document.getElementById('modalUptodownBtn');
+            
+            uptodownBtn.href = data.uptodownUrl;
+            
+            if (appId === 'quicknote-pro') {
+                downloadBtn.href = '#';
+                downloadBtn.textContent = 'Coming Soon';
+                downloadBtn.disabled = true;
+            } else {
+                downloadBtn.href = data.downloadUrl;
+                downloadBtn.textContent = 'Download APK';
+                downloadBtn.disabled = false;
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeAppDetails() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Close modal on outside click
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeAppDetails();
+            }
+        });
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                closeAppDetails();
+            }
+        });
+
+        // --- Search and Filter Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const appCards = document.querySelectorAll('.app-card');
+            const noResultsEl = document.getElementById('noResults');
+            let currentFilter = 'all';
+
+            function performFilter() {
+                const searchTerm = searchInput.value.toLowerCase();
+                let resultsFound = false;
+
                 appCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
+                    const category = card.dataset.category;
+                    const name = card.dataset.name.toLowerCase();
+                    
+                    const matchesFilter = (currentFilter === 'all' || category === currentFilter);
+                    const matchesSearch = (name.includes(searchTerm));
+
+                    if (matchesFilter && matchesSearch) {
                         card.style.display = 'flex';
+                        resultsFound = true;
                     } else {
                         card.style.display = 'none';
                     }
                 });
-            });
-        });
+                
+                noResultsEl.style.display = resultsFound ? 'none' : 'flex';
+            }
 
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const appCards = document.querySelectorAll('.app-card');
+            // Search input event
+            searchInput.addEventListener('input', performFilter);
+
+            // Filter buttons event
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentFilter = button.dataset.filter;
+                    performFilter();
+                });
+            });
             
-            appCards.forEach(card => {
-                const appName = card.dataset.name;
-                if (appName.includes(searchTerm)) {
-                    card.style.display = 'flex';
+            // --- UI/UX UPDATE: Animate elements on scroll ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+            
+            // --- UI/UX UPDATE: Back to Top Button visibility ---
+            const backToTopButton = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('is-visible');
                 } else {
-                    card.style.display = 'none';
+                    backToTopButton.classList.remove('is-visible');
                 }
             });
-        });
-
-        // Open app details modal
-        function openAppDetails(appId) {
-            const appData = appsData[appId];
-            if (!appData) return;
-            
-            // Populate modal with app data
-            document.getElementById('modalAppTitle').textContent = appData.title;
-            document.getElementById('modalAppSubtitle').textContent = appData.subtitle;
-            document.getElementById('modalAppIcon').textContent = appData.icon;
-            document.getElementById('modalAppVersion').textContent = appData.version;
-            document.getElementById('modalAppSize').textContent = appData.size;
-            document.getElementById('modalAppDownloads').textContent = appData.downloads;
-            document.getElementById('modalAppRating').textContent = appData.rating;
-            document.getElementById('modalAppRequires').textContent = appData.requires;
-            document.getElementById('modalAppContent').innerHTML = appData.content;
-            
-            // Set download button
-            const downloadBtn = document.getElementById('modalDownloadBtn');
-            if (appId === 'quicknote-pro') {
-                downloadBtn.textContent = 'Coming Soon';
-                downloadBtn.style.opacity = '0.6';
-                downloadBtn.style.cursor = 'not-allowed';
-                downloadBtn.removeAttribute('href');
-                downloadBtn.removeAttribute('download');
-            } else {
-                downloadBtn.textContent = 'Download APK';
-                downloadBtn.style.opacity = '1';
-                downloadBtn.style.cursor = 'pointer';
-                downloadBtn.href = appData.downloadUrl;
-                downloadBtn.setAttribute('download', '');
-            }
-            
-            // Show modal
-            document.getElementById('appModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close app details modal
-        function closeAppDetails() {
-            document.getElementById('appModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeAppDetails();
-            }
-        });
-
-        // Close modal when clicking outside content
-        document.getElementById('appModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAppDetails();
-            }
         });
     </script>
 </body>
