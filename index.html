@@ -24,8 +24,9 @@
             --secondary-color: #1e40af;
             --accent-color: #60a5fa;
             --success: #10b981;
+            --danger: #ef4444;
             --dark-bg: #0f172a;
-            --card-bg: #0f1624; /* slightly darker for depth */
+            --card-bg: #0f1624;
             --panel-bg: #111827;
             --muted: #94a3b8;
             --text-primary: #e6eef8;
@@ -37,6 +38,12 @@
             --glass-border: rgba(59,130,246,0.12);
             --transition-fast: 180ms;
         }
+        
+        /* Apply smooth scroll to the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body{
             font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
             background: linear-gradient(180deg, var(--dark-bg) 0%, #071023 100%);
@@ -45,6 +52,30 @@
             -webkit-font-smoothing:antialiased;
         }
         .container{ max-width: var(--container-w); margin: 0 auto; padding: 0 20px; }
+
+        /* ---------- ACCESSIBILITY (UX) ---------- */
+        /* Add a visible focus ring for keyboard navigation */
+        .btn:focus-visible,
+        .social-link:focus-visible,
+        .view-all-btn:focus-visible,
+        .nav-links a:focus-visible,
+        .logo:focus-visible,
+        .back-to-top:focus-visible,
+        .form-group input:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+        }
+        .form-group input, .form-group textarea {
+             transition: border-color 150ms ease, box-shadow 150ms ease;
+        }
+        .form-group input:focus-visible,
+        .form-group textarea:focus-visible {
+             outline: none;
+             border-color: var(--primary-color);
+        }
+
 
         /* ---------- NAV ---------- */
         nav{
@@ -69,11 +100,12 @@
         .cta-buttons{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
         /* ---------- BUTTONS ---------- */
-        .btn{ display:inline-block; padding:0.7rem 1.4rem; border-radius:10px; text-decoration:none; font-weight:700; transition: all 220ms cubic-bezier(.2,.9,.2,1); box-shadow:0 6px 20px rgba(2,6,23,0.45); }
+        .btn{ display:inline-block; padding:0.7rem 1.4rem; border-radius:10px; text-decoration:none; font-weight:700; transition: all 220ms cubic-bezier(.2,.9,.2,1); box-shadow:0 6px 20px rgba(2,6,23,0.45); cursor: pointer; }
         .btn-primary{ background: linear-gradient(90deg,var(--primary-color),var(--primary-600)); color:white; border: none; }
         .btn-secondary{ background:var(--panel-bg); color:var(--text-primary); border:1px solid rgba(255,255,255,0.03); }
         .btn-outline{ background:transparent; color:var(--primary-color); border:2px solid var(--primary-color); }
         .btn:hover{ transform: translateY(-4px); box-shadow: 0 14px 30px rgba(59,130,246,0.06); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: 0 6px 20px rgba(2,6,23,0.45); }
 
         /* small subtle pill style for secondary */
         .pill { padding:0.35rem 0.85rem; border-radius:999px; font-weight:700; font-size:0.85rem; background:var(--glass-2); color:var(--text-primary); border: 1px solid var(--glass-border); }
@@ -114,10 +146,20 @@
 
         .app-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
         .app-left{ display:flex; gap:14px; align-items:center; }
+        
+        /* UI/UX UPDATE: Professional Icons */
         .app-icon{
             width:84px; height:84px; border-radius:14px; display:flex; align-items:center; justify-content:center;
-            font-size:2.2rem; background: linear-gradient(120deg, var(--primary-color), var(--accent-color)); box-shadow: inset 0 -6px 14px rgba(0,0,0,0.15);
+            background: linear-gradient(120deg, var(--primary-color), var(--accent-color)); 
+            box-shadow: inset 0 -6px 14px rgba(0,0,0,0.15);
         }
+        .app-icon svg {
+            width: 44px;
+            height: 44px;
+            color: white;
+            opacity: 0.9;
+        }
+
         .app-card h3{ font-size:1.18rem; color:var(--primary-color); margin-bottom:0; }
         .app-card p{ color:var(--muted); font-size:0.98rem; margin-bottom:6px; }
 
@@ -139,13 +181,34 @@
         .social-links{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:1rem; }
         .social-link{ display:inline-flex; gap:8px; align-items:center; padding:10px 14px; border-radius:10px; text-decoration:none; background:var(--card-bg); color:var(--text-primary); transition: all var(--transition-fast) ease; border:1px solid rgba(255,255,255,0.02); }
         .social-link:hover{ transform: translateY(-4px); background: linear-gradient(90deg,var(--primary-color),var(--accent-color)); color:white; }
+        .social-link svg { width: 20px; height: 20px; } /* UI/UX Update */
 
-        .contact-section{ padding:3rem 0 4rem; }
-        .contact-form{ max-width:640px; margin:1.6rem auto 0; }
+        .contact-section{ padding:3rem 0 4rem; text-align:center; }
+        .contact-form{ max-width:640px; margin:1.6rem auto 0; text-align:left; }
         .form-group{ margin-bottom:1.1rem; }
         .form-group label{ display:block; margin-bottom:6px; color:var(--muted); font-weight:700; font-size:0.92rem; }
         .form-group input, .form-group textarea{ width:100%; padding:11px 12px; border-radius:10px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); color:var(--text-primary); font-size:0.98rem; }
         .form-group textarea{ min-height:140px; resize:vertical; }
+
+        /* UI/UX UPDATE: Form status messages */
+        .form-status {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            font-weight: 600;
+            display: none; /* Hidden by default */
+        }
+        .form-status.success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .form-status.error {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
 
         /* ---------- FOOTER ---------- */
         footer{ background: transparent; padding:2.2rem 0 1.2rem; border-top:1px solid rgba(59,130,246,0.03); margin-top:2rem; }
@@ -160,12 +223,73 @@
             .apps-grid{ grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
         }
         @media (max-width: 768px){
-            .nav-links{ display:none; position:absolute; top:64px; left:0; right:0; background:var(--panel-bg); padding:12px; flex-direction:column; gap:8px; border-top:1px solid rgba(59,130,246,0.04); }
+            .nav-links{ display:none; position:absolute; top:73px; left:0; right:0; background:var(--panel-bg); padding:12px; flex-direction:column; gap:8px; border-top:1px solid rgba(59,130,246,0.04); }
             .nav-links.active{ display:flex; }
             .mobile-menu-btn{ display:block; }
             .apps-header{ flex-direction:column; align-items:flex-start; gap:10px; }
-            .app-icon{ width:70px; height:70px; font-size:1.9rem; }
+            .app-icon{ width:70px; height:70px; }
+            .app-icon svg { width: 36px; height: 36px; }
             .hero{ padding:3.2rem 0; }
+            .contact-section { text-align: left; }
+        }
+
+        /* ---------- UI/UX UPDATE: ANIMATIONS ---------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Class to apply to elements to make them animate on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        /* Class added by JavaScript when element is in view */
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger app card animations */
+        .app-card.is-visible:nth-child(1) { transition-delay: 0ms; }
+        .app-card.is-visible:nth-child(2) { transition-delay: 100ms; }
+        .app-card.is-visible:nth-child(3) { transition-delay: 200ms; }
+
+
+        /* ---------- UI/UX UPDATE: BACK TO TOP BUTTON ---------- */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 300ms ease, transform 300ms ease;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .back-to-top.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* small helper */
@@ -173,7 +297,6 @@
     </style>
 </head>
 <body>
-    <!-- NAV -->
     <nav>
         <div class="container">
             <a href="#home" class="logo">
@@ -189,15 +312,13 @@
                 <li><a href="privacy.html">Privacy</a></li>
             </ul>
 
-            <div style="display:flex; align-items:center; gap:12px;">
-                <a href="#apps" class="pill">Explore Apps</a>
-                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
-            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
+    <section id="home" class="hero reveal">
         <div class="container">
             <h1>Bolt Studios ⚡</h1>
             <p>Lightning-fast mobile apps for everyday life</p>
@@ -208,36 +329,34 @@
         </div>
     </section>
 
-    <!-- APPS -->
     <section id="apps" class="apps-section">
         <div class="container">
-            <!-- New header layout with View All -->
-            <div class="apps-header">
+            <div class="apps-header reveal">
                 <div>
                     <h2 class="section-title">Our Apps</h2>
                     <div class="section-sub">Small, fast, and designed for real use — download and try our flagship utilities.</div>
                 </div>
 
-                <!-- View All button (top-right) -->
                 <div>
                     <a href="all_apps.html" class="view-all-btn" aria-label="View all apps">View All Apps →</a>
                 </div>
             </div>
 
-            <!-- grid kept unchanged content-wise -->
             <div class="apps-grid">
-                <!-- QR Scan Pro -->
-                <div class="app-card">
+                <div class="app-card reveal">
                     <div class="app-top">
                         <div class="app-left">
-                            <div class="app-icon">📱</div>
+                            <div class="app-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5A.75.75 0 014.5 3.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM3.75 15A.75.75 0 014.5 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM15 3.75A.75.75 0 0014.25 3h-4.5a.75.75 0 00-.75.75v4.5a.75.75 0 00.75.75h4.5a.75.75 0 00.75-.75v-4.5zM14.25 15a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5z" />
+                                </svg>
+                            </div>
                             <div>
                                 <span class="badge">🔥 NEW</span>
                             </div>
                         </div>
                         <div style="text-align:right;">
-                            <!-- reserved for meta or rating later -->
-                        </div>
+                            </div>
                     </div>
 
                     <h3>QR Scan Pro</h3>
@@ -263,11 +382,14 @@
                     </div>
                 </div>
 
-                <!-- Metal Scan Pro -->
-                <div class="app-card">
+                <div class="app-card reveal">
                     <div class="app-top">
                         <div class="app-left">
-                            <div class="app-icon">🔍</div>
+                            <div class="app-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM1.928 9.372A.38.38 0 012.31 9.308l4.434-.633a.38.38 0 01.42.42l-.633 4.434a.38.38 0 01-.58.265L1.928 9.372zM14.628 1.928a.38.38 0 01.064.381l-.633 4.434a.38.38 0 01-.42.42L9.205 7.79a.38.38 0 01-.265-.58L14.247 1.928a.38.38 0 01.381-.001z" />
+                                </svg>
+                            </div>
                             <div>
                                 <span class="badge">🔥 AVAILABLE</span>
                             </div>
@@ -297,11 +419,14 @@
                     </div>
                 </div>
 
-                <!-- QuickNote Pro -->
-                <div class="app-card">
+                <div class="app-card reveal">
                     <div class="app-top">
                         <div class="app-left">
-                            <div class="app-icon">📝</div>
+                            <div class="app-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                </svg>
+                            </div>
                             <div>
                                 <span class="badge coming-soon">Coming Soon</span>
                             </div>
@@ -326,8 +451,7 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section reveal">
         <div class="container">
             <div class="about-content">
                 <h2 class="section-title">About Bolt Studios</h2>
@@ -338,33 +462,34 @@
         </div>
     </section>
 
-    <!-- SOCIAL -->
-    <section class="social-section">
+    <section class="social-section reveal">
         <div class="container">
             <h2 class="section-title">Connect With Us</h2>
             <div class="social-links">
                 <a href="https://instagram.com/boltstudios.official" target="_blank" class="social-link">
-                    <span>📸</span> Instagram
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Instagram
                 </a>
                 <a href="https://twitter.com/BoltStudiosIN" target="_blank" class="social-link">
-                    <span>🐦</span> Twitter/X
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    Twitter/X
                 </a>
                 <a href="https://youtube.com/@BoltStudios" target="_blank" class="social-link">
-                    <span>📺</span> YouTube
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+                    YouTube
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section reveal">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <p style="text-align:center; color:var(--muted); margin-bottom:1.2rem;">Have questions, feedback, or suggestions? We'd love to hear from you!<br>
                 Email us at: <strong style="color:var(--primary-color);">bolt-studios@outlook.com</strong>
             </p>
 
-            <form class="contact-form" action="https://formspree.io/f/xqayledw" method="POST">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xqayledw" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required />
@@ -381,12 +506,13 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="btn btn-primary" id="form-submit-btn">Send Message</button>
             </form>
+            
+            <div id="form-status" class="form-status"></div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -429,34 +555,158 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
+
     <script>
+        // --- Mobile Menu Toggle ---
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
             navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.contains('active');
+            menuBtn.setAttribute('aria-expanded', isActive);
+            // Optional: Change menu icon to 'X'
+            if (isActive) {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
         }
 
-        // close mobile nav clicking outside
+        // --- Close mobile nav when clicking outside ---
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const navLinks = document.getElementById('navLinks');
-            if (!nav.contains(event.target)) {
-                navLinks.classList.remove('active');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+
+            // If the menu is not active, do nothing
+            if (!navLinks.classList.contains('active')) {
+                return;
             }
+
+            // If the click is inside the nav, do nothing
+            if (nav.contains(event.target)) {
+                // But if it was on a link, close the menu
+                if (event.target.tagName === 'A' && event.target.href.includes('#')) {
+                    toggleMenu(); // Use toggleMenu to also reset icon
+                }
+                return;
+            }
+
+            // Click was outside the nav, so close it
+            toggleMenu(); // Use toggleMenu to also reset icon
         });
 
-        // smooth scroll for anchor links
+        // --- Smooth scroll for anchor links (original script modified to close menu) ---
+        // Note: 'scroll-behavior: smooth;' in CSS handles most of this,
+        // but this JS ensures the menu closes after clicking a link.
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // only handle if href targets an element on page
                 const href = this.getAttribute('href');
-                if(!href.startsWith('#')) return;
+                if (href === '#') return; // Do nothing for placeholder links
+                
                 const target = document.querySelector(href);
                 if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                document.getElementById('navLinks').classList.remove('active');
+                
+                // e.preventDefault(); // Keep this commented out to allow CSS smooth scroll to work
+                
+                // Close menu if it's active
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
             });
+        });
+
+
+        // --- UI/UX UPDATE: Animate elements on scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: Stop observing after it's visible
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is in view
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+
+        // --- UI/UX UPDATE: Back to Top Button visibility ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Show after 300px of scrolling
+                    backToTopButton.classList.add('is-visible');
+                } else {
+                    backToTopButton.classList.remove('is-visible');
+                }
+            });
+        });
+        
+        
+        // --- UI/UX UPDATE: Advanced Contact Form (Formspree) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            const submitButton = document.getElementById('form-submit-btn');
+            const statusEl = document.getElementById('form-status');
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const data = new FormData(event.target);
+                
+                // Disable button
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                // Clear previous status
+                statusEl.style.display = 'none';
+                statusEl.className = 'form-status';
+
+                try {
+                    const response = await fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Success
+                        statusEl.textContent = "Success! Your message has been sent. We'll get back to you soon.";
+                        statusEl.classList.add('success');
+                        statusEl.style.display = 'block';
+                        form.reset();
+                    } else {
+                        // Server error
+                        throw new Error('Server responded with an error.');
+                    }
+                } catch (error) {
+                    // Network or other error
+                    statusEl.textContent = 'Error! Something went wrong. Please try again or email us directly.';
+                    statusEl.classList.add('error');
+                    statusEl.style.display = 'block';
+                } finally {
+                    // Re-enable button
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                }
+            }
+
+            form.addEventListener("submit", handleSubmit);
         });
     </script>
 </body>
